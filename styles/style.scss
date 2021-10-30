@@ -1,0 +1,167 @@
+$primary-color: #081C39;
+$secondary-color: #0092B8;
+$black-color: #000;
+$white-color: #fff;
+$max-width: 1600px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+.container-all-site{
+    background: $primary-color;
+    padding: 2rem;
+    min-height: calc(100vh - 7rem);
+    .bread-crumbs{
+        max-width: $max-width;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        background: #081C39 0% 0% no-repeat padding-box;
+        .breadcrumb-item{
+            font-family: 'Roboto', sans-serif;
+            color: $white-color;
+            text-decoration: none;
+        }
+        .icon-home{
+            color: $white-color;
+        }
+        .slash{
+            color: $white-color;
+        }
+        .breadcrumb-item.active{
+            color: $secondary-color;
+        }
+    }
+    .container{
+        max-width: $max-width;
+        margin: 0 auto;
+        .container-comeback{
+            .comeback{
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                color: $secondary-color;
+            }
+        }
+        .title-simulator{
+            font-size: 60px;
+            color: $white-color;
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .container-form{
+            display: flex;
+            .container-cards{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                .card {
+                    text-align: center;
+                    background-color: #0093b860;
+                    padding: 1rem;
+                    position: relative;
+                    border-radius: 10px;
+                    display: grid;
+                    width: 100%;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 180px;
+                    grid-gap: 1rem;
+                    &:nth-child(2){
+                        margin-left: 2rem;
+                    }
+                    &:nth-child(3){
+                        margin: 0 2rem;
+                    }
+                    .input-style{
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        display: none;
+                        &:checked + label{
+                            color: #fff;
+                        }
+                        &:checked + label:before{
+                            background-color: $secondary-color;
+                            border: 1px solid $white-color;
+                            box-sizing: border-box;
+                            content: "\f560";
+                        }
+                    }
+                    .label-card{
+                        font-family: 'Roboto', sans-serif;
+                        color: #fff;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .image-card{
+                            margin-bottom: 1rem;
+                        }
+                        &::before{
+                            content: '';
+                            display: block;
+                            width: 20px;
+                            height: 20px;
+                            background-color: #fff;
+                            border-radius: 10px;
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            z-index: 1;
+                        }
+                    }
+                }
+            }
+            .type-of-site{
+                margin: 1rem 0;
+                border-radius: 5px;
+                background-color: transparent;
+                border: 1px solid $white-color;
+                padding: 0.4rem 1rem;
+                color: $white-color;
+                min-width: 300px;
+                font-family: 'Roboto', sans-serif;
+            }
+            .number-pages{
+                color: $white-color;
+                font-family: 'Roboto', sans-serif;
+            }
+            .input-range{
+                margin: 1rem 0;
+                display: block;
+                color: $white-color;
+            }
+            .components{
+                margin: 1rem 0;
+                .title-components{
+                    margin: 1rem 0;
+                    color: $white-color;
+                    font-family: 'Roboto', sans-serif;
+                }
+                .label-components{
+                    color: $secondary-color;
+                    padding: 0.4rem 1rem;
+                    border-radius: 30px;
+                    border: 1px solid $secondary-color;
+                    margin: 0 1rem;
+                    font-family: 'Roboto', sans-serif;
+                    &:nth-child(2){
+                        margin-left: 0;
+                    }
+                }
+                .input-components{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+footer{
+    background: $primary-color;
+    text-align: center;
+    color: $white-color;
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem 0;
+}
