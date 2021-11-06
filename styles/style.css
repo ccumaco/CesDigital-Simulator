@@ -12,7 +12,7 @@
 }
 
 .container-all-site .bread-crumbs {
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 1rem;
   background: #081C39 0% 0% no-repeat padding-box;
@@ -37,7 +37,7 @@
 }
 
 .container-all-site .container {
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -60,6 +60,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .container-all-site .container .container-form .container-cards {
@@ -199,6 +202,105 @@
 
 .container-all-site .container .container-form .components .input-components {
   display: none;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  background: #fff;
+  max-width: 300px;
+  margin: 2rem auto 0;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .title-cost {
+  color: #081C39;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .list {
+  margin: 1rem 0;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .list .type-options {
+  list-style: none;
+  color: #707070;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  margin: 0.3rem 0;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .text-option {
+  color: #707070;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  margin: 0.4rem 0;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .price {
+  color: #0092B8;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .value .contain-option {
+  margin-right: 1rem;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .value .contain-option .name {
+  color: #707070;
+  margin-bottom: 0.4rem;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .continer-submit {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .continer-submit .want {
+  background-color: #0092B8;
+  color: #fff;
+  padding: 14px 38px;
+  border: 0;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+}
+
+.container-all-site .container .container-form .container-cost .title-observations {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  max-width: 340px;
+  margin: 2rem auto 1rem;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.container-all-site .container .container-form .container-cost .paragraph-observations {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  max-width: 340px;
+  margin: 0 auto;
+  font-size: 14px;
 }
 
 footer {
