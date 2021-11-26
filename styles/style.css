@@ -1,8 +1,93 @@
 * {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
+}
+
+header {
+  position: relative;
+  background: #081C39;
+}
+
+@media (max-width: 991px) {
+  header {
+    min-height: 5rem;
+    border-bottom: 1px solid #707070;
+    -webkit-box-shadow: 1px 1px 1px #707070;
+            box-shadow: 1px 1px 1px #707070;
+  }
+}
+
+header .container-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 3rem;
+}
+
+header .container-header .logo-team {
+  max-height: 50px;
+}
+
+@media (max-width: 991px) {
+  header .container-header .logo-team {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+
+header .container-header .container-menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 991px) {
+  header .container-header .container-menu ul {
+    display: none;
+  }
+}
+
+header .container-header .container-menu ul li {
+  font-family: 'Roboto', sans-serif;
+  margin: 0 1rem;
+  list-style: none;
+}
+
+header .container-header .container-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header .container-header .container-menu .image-mobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  header .container-header .container-menu .image-mobile {
+    display: block;
+    right: 15px;
+    top: 15px;
+    position: absolute;
+    max-height: 50px;
+  }
 }
 
 .container-all-site {
@@ -303,11 +388,402 @@
   font-size: 14px;
 }
 
+.container-home {
+  background-color: #081C39;
+  min-height: 100vh;
+}
+
+.container-home .banner-step1 {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .container-home .banner-step1 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.container-home .banner-step1 .container-text {
+  width: 50%;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 991px) {
+  .container-home .banner-step1 .container-text {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+.container-home .banner-step1 .container-text .title-home {
+  font-size: 40px;
+  color: #fff;
+}
+
+.container-home .banner-step1 .container-text .paragraph-home {
+  color: #fff;
+  font-size: 18px;
+}
+
+.container-home .banner-step1 .container-text .simulator {
+  color: #fff;
+  padding: 0.6rem 1rem;
+  background: #0092B8;
+  margin-top: 1rem;
+  border-radius: 10px;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-decoration: none;
+}
+
+@media (max-width: 991px) {
+  .container-home .banner-step1 .container-text .simulator {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+.container-home .banner-step1 .image-home {
+  width: 50%;
+}
+
+@media (max-width: 991px) {
+  .container-home .banner-step1 .image-home {
+    width: 90%;
+  }
+}
+
+.container-home .subtitle {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1.5rem 0;
+}
+
+.container-home .container-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem;
+  }
+}
+
+.container-home .container-cards .card {
+  text-align: center;
+  background-color: #082341;
+  padding: 1rem;
+  position: relative;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: minmax(280px, fit-content);
+      grid-template-rows: minmax(280px, -webkit-fit-content);
+      grid-template-rows: minmax(280px, fit-content);
+  grid-gap: 1rem;
+}
+
+.container-home .container-cards .card:nth-child(2) {
+  margin-left: 2rem;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-cards .card:nth-child(2) {
+    margin: 1rem 0;
+  }
+}
+
+.container-home .container-cards .card:nth-child(3) {
+  margin: 0 2rem;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-cards .card:nth-child(3) {
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .container-home .container-cards .card {
+    margin: 1rem 0;
+    width: 98%;
+    max-width: 300px;
+  }
+}
+
+.container-home .container-cards .card .input-style {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+.container-home .container-cards .card .input-style:checked + label {
+  color: #fff;
+}
+
+.container-home .container-cards .card .input-style:checked + label:before {
+  background-color: #0092B8;
+  border: 1px solid #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  content: "\f560";
+}
+
+.container-home .container-cards .card .label-card {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-home .container-cards .card .label-card .image-card {
+  margin-bottom: 1rem;
+}
+
+.container-home .container-cards .card .label-card .title-information {
+  width: 100%;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-cards .card .label-card .title-information {
+    text-align: center;
+  }
+}
+
+.container-home .container-cards .card .label-card .information {
+  color: #748090;
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-cards .card .label-card .information {
+    text-align: center;
+  }
+}
+
+.container-home .container-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.container-home .container-form .atencion-client {
+  color: #748090;
+}
+
+.container-home .container-form .atencion-client .atencion {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-form .atencion-client .atencion {
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .container-home .container-form .atencion-client ul {
+    text-align: center;
+  }
+}
+
+.container-home .container-form .atencion-client ul li.rs {
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+  margin: 0.5rem 0;
+}
+
+.container-home .container-form .atencion-client ul li.rs i {
+  width: 20px;
+  margin-right: 0.5rem;
+  color: #036588;
+  font-size: 1.5rem;
+}
+
+.container-home .container-form .atencion-client ul li.rs a {
+  vertical-align: top;
+  color: #748090;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.container-home .container-form .form-contact {
+  width: 30%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-form .form-contact {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.container-home .container-form .form-contact form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container-home .container-form .form-contact form input, .container-home .container-form .form-contact form select, .container-home .container-form .form-contact form textarea {
+  color: #748090;
+  margin: 1rem 0;
+  padding: 20px 10px;
+  background-color: transparent;
+  border: 1px solid #748090;
+  width: 100%;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-form .form-contact form input, .container-home .container-form .form-contact form select, .container-home .container-form .form-contact form textarea {
+    width: auto;
+  }
+}
+
+.container-home .container-form .form-contact form input::-webkit-input-placeholder, .container-home .container-form .form-contact form select::-webkit-input-placeholder, .container-home .container-form .form-contact form textarea::-webkit-input-placeholder {
+  color: #748090;
+}
+
+.container-home .container-form .form-contact form input:-ms-input-placeholder, .container-home .container-form .form-contact form select:-ms-input-placeholder, .container-home .container-form .form-contact form textarea:-ms-input-placeholder {
+  color: #748090;
+}
+
+.container-home .container-form .form-contact form input::-ms-input-placeholder, .container-home .container-form .form-contact form select::-ms-input-placeholder, .container-home .container-form .form-contact form textarea::-ms-input-placeholder {
+  color: #748090;
+}
+
+.container-home .container-form .form-contact form input::placeholder, .container-home .container-form .form-contact form select::placeholder, .container-home .container-form .form-contact form textarea::placeholder {
+  color: #748090;
+}
+
+.container-home .container-form .form-contact form input.send-form, .container-home .container-form .form-contact form select.send-form, .container-home .container-form .form-contact form textarea.send-form {
+  background-color: #0092B8;
+  color: #fff;
+  padding: 20px 10px;
+  border: 0;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem 2rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@media (max-width: 991px) {
+  .container-home .container-form .form-contact form input.send-form, .container-home .container-form .form-contact form select.send-form, .container-home .container-form .form-contact form textarea.send-form {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+.container-home .container-form .form-contact form input.send-form:hover, .container-home .container-form .form-contact form select.send-form:hover, .container-home .container-form .form-contact form textarea.send-form:hover {
+  background-color: #748090;
+  color: #0092B8;
+}
+
+.container-home .container-form .form-contact form input option, .container-home .container-form .form-contact form select option, .container-home .container-form .form-contact form textarea option {
+  color: #000;
+}
+
 footer {
   background: #081C39;
   text-align: center;
   color: #fff;
   font-family: 'Roboto', sans-serif;
   padding: 1rem 0;
+}
+
+@media (max-width: 991px) {
+  footer {
+    font-size: 11px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

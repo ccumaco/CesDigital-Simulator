@@ -6,9 +6,89 @@ $grey-color: #707070;
 $max-width: 1200px;
 
 * {
+    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
     box-sizing: content-box;
+}
+
+@mixin screen($size) {
+    @if $size == "xs" {
+        @media (max-width: 575px) {
+            @content;
+        }
+    } @else if $size == "sm" {
+        @media (max-width: 767px) {
+            @content;
+        }
+    } @else if $size == "md" {
+        @media (max-width: 991px) {
+            @content;
+        }
+    } @else if $size == "lg" {
+        @media (max-width: 1199px) {
+            @content;
+        }
+    } @else if $size == "xl" {
+        @media (max-width: 1599px) {
+            @content;
+        }
+    }
+  }
+
+header{
+    position: relative;
+    background: $primary-color;
+    @include screen("md") {
+        min-height:5rem;
+        border-bottom: 1px solid $grey-color;
+        box-shadow: 1px 1px 1px $grey-color;
+    }
+    .container-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        .logo-team{
+            max-height: 50px;
+            @include screen("md") {
+                position: absolute;
+                top: 15px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+        .container-menu {
+            ul{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include screen("md") {
+                    display: none;
+                }
+                li{
+                    font-family: 'Roboto', sans-serif;
+                    margin: 0 1rem;
+                    list-style: none;
+                    a{
+                        color: $white-color;
+                        text-decoration: none;
+                    }
+                }
+            }
+            .image-mobile{
+                display: none;
+                @include screen("md") {
+                    display: block;
+                    right: 15px;
+                    top: 15px;
+                    position: absolute;
+                    max-height: 50px;
+                }
+            }
+        }
+    }
 }
 
 .container-all-site {
@@ -98,7 +178,7 @@ $max-width: 1200px;
                         display: none;
 
                         &:checked+label {
-                            color: #fff;
+                            color: $white-color;
                         }
 
                         &:checked+label:before {
@@ -111,7 +191,7 @@ $max-width: 1200px;
 
                     .label-card {
                         font-family: 'Roboto', sans-serif;
-                        color: #fff;
+                        color: $white-color;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
@@ -126,7 +206,7 @@ $max-width: 1200px;
                             display: block;
                             width: 20px;
                             height: 20px;
-                            background-color: #fff;
+                            background-color: $white-color;
                             border-radius: 10px;
                             position: absolute;
                             top: 10px;
@@ -278,10 +358,260 @@ $max-width: 1200px;
     }
 }
 
+.container-home{
+    background-color: $primary-color;
+    min-height: 100vh;
+    .banner-step1{
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        max-width: $max-width;
+        margin: 0 auto;
+        @include screen("md"){
+            flex-direction: column;
+        }
+        .container-text{
+            width: 50%;
+            text-align: left;
+            font-family: 'Roboto', sans-serif;
+            @include screen("md"){
+                width: 90%;
+                text-align: center;
+            }
+            .title-home{
+                font-size: 40px;
+                color: $white-color;
+            }
+            .paragraph-home{
+                color: $white-color;
+                font-size: 18px;
+            }
+            .simulator{
+                color: $white-color;
+                padding: 0.6rem 1rem;
+                background: $secondary-color;
+                margin-top: 1rem;
+                border-radius: 10px;
+                display: block;
+                width: fit-content;
+                text-decoration: none;
+                @include screen("md"){
+                    width: 100%;
+                    text-align: center;
+                    padding: 1rem;
+                }
+            }
+        }
+        .image-home{
+            width: 50%;
+            @include screen("md"){
+                width: 90%;
+            }
+        }
+    }
+    .subtitle{
+        color: $white-color;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 1.5rem 0;
+    }
+    .container-cards {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: $max-width;
+        margin: 0 auto;
+        padding-bottom: 1rem;
+        @include screen("md") {
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+        .card {
+            text-align: center;
+            background-color: #082341;
+            padding: 1rem;
+            position: relative;
+            border-radius: 10px;
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: minmax(280px, fit-content);
+            grid-gap: 1rem;
+            &:nth-child(2) {
+                margin-left: 2rem;
+                @include screen("md") {
+                    margin: 1rem 0;
+                }
+            }
+
+            &:nth-child(3) {
+                margin: 0 2rem;
+                @include screen("md") {
+                    margin: 1rem 0;
+                }
+            }
+            @include screen("md") {
+                margin: 1rem 0;
+                width: 98%;
+                max-width: 300px;
+            }
+            .input-style {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                display: none;
+
+                &:checked+label {
+                    color: $white-color;
+                }
+
+                &:checked+label:before {
+                    background-color: $secondary-color;
+                    border: 1px solid $white-color;
+                    box-sizing: border-box;
+                    content: "\f560";
+                }
+            }
+
+            .label-card {
+                font-family: 'Roboto', sans-serif;
+                color: $white-color;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .image-card {
+                    margin-bottom: 1rem;
+                }
+                .title-information{
+                    width: 100%;
+                    font-size: 1.3rem;
+                    margin-bottom: 0.5rem;
+                    font-weight: bold;
+                    text-align: left;
+                    @include screen("md"){
+                        text-align: center;
+                    }
+                }
+                .information{
+                    color: #748090;
+                    text-align: left;
+                    @include screen("md"){
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .container-form{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        @include screen("md") {
+            flex-direction: column;
+            align-items: center;
+        }
+        .atencion-client{
+            color: #748090;
+            .atencion{
+                font-family: 'Roboto', sans-serif;
+                color: $white-color;
+                @include screen("md") {
+                    text-align: center;
+                }
+            }
+            ul{
+                @include screen("md") {
+                    text-align: center;
+                }
+                li.rs{
+                    font-family: 'Roboto', sans-serif;
+                    list-style: none;
+                    margin: 0.5rem 0;
+                    i{
+                        width: 20px;
+                        margin-right: 0.5rem;
+                        color: #036588;
+                        font-size: 1.5rem;
+                    }
+                    a{
+                        vertical-align: top;
+                        color: #748090;
+                        text-decoration: none;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .form-contact{
+            width: 30%;
+            box-sizing: content-box;
+            @include screen("md") {
+                width: 90%;
+                margin: 0 auto;
+            }
+            form{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                input, select, textarea{
+                    color: #748090;
+                    margin: 1rem 0;
+                    padding: 20px 10px;
+                    background-color: transparent;
+                    border: 1px solid #748090;
+                    width: 100%;
+                    border-radius: 10px;
+                    font-family: 'Roboto', sans-serif;
+                    @include screen("md") {
+                        width: auto;
+                    }
+                    &::placeholder{
+                        color: #748090;
+                    }
+                    &.send-form{
+                        background-color: $secondary-color;
+                        color: $white-color;
+                        padding: 20px 10px;
+                        border: 0;
+                        width: 100%;
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        cursor: pointer;
+                        width: fit-content;
+                        padding: 1rem 2rem;
+                        transition: all 0.5s;
+                        @include screen("md") {
+                            width: 100%;
+                            padding: 0.5rem 0;
+                        }
+                        &:hover{
+                            background-color: #748090;
+                            color: $secondary-color;
+                        }
+                    }
+                    option{
+                        color: $black-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
 footer {
     background: $primary-color;
     text-align: center;
     color: $white-color;
     font-family: 'Roboto', sans-serif;
     padding: 1rem 0;
+    @include screen("md") {
+        font-size: 11px;
+    }
 }
