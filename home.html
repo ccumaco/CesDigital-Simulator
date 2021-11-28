@@ -8,19 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
     <title>Document</title>
 </head>
 <header>
     <div class="container-header">
-        <img class='logo-team' src="./images/computer.png" alt="logo Maacgraficas">
+        <a href="/home.html">
+            <img class='logo-team' src="./images/computer.png" alt="logo Maacgraficas">
+        </a>
         <div class="container-menu">
             <ul>
-                <li><a href="home.html">Inicio</a></li>
-                <li><a href="index.html">Nuestros servicios</a></li>
-                <li><a href="#contact">Contactanos</a></li>
+                <li><a href="home.html" onclick='openMenuMobile(!menuMobile)'>Inicio</a></li>
+                <li><a href="index.html" onclick='openMenuMobile(!menuMobile)'>Nuestros servicios</a></li>
+                <li><a href="#contact" onclick='openMenuMobile(!menuMobile)'>Contactanos</a></li>
             </ul>
-            <img class='image-mobile' src="./images/analitycs.png" alt="hamburguer mobile">
+            <i class="fas fa-bars image-mobile" onclick='openMenuMobile(!menuMobile)' ></i>
         </div>
+    </div>
+    <div class="menu-mobile">
+        <i class="fas fa-window-close close-btn" onclick='openMenuMobile(!menuMobile)'></i>
+        <ul>
+            <li class='active'><a href="home.html">Inicio</a></li>
+            <li><a href="index.html">Nuestros servicios</a></li>
+            <li><a href="home.html#contact">Contactanos</a></li>
+        </ul>
     </div>
 </header>
 <body>
@@ -29,7 +40,7 @@
             <div class="container-text">
                 <h2 class='title-home'>Soluciones digitales para tu empresa.</h2>
                 <p class='paragraph-home'>Diseñamos, implementamos, posicionamos y monitoreamos tu sitio web</p>
-                <a class='simulator' href="#simulador">Simulador de precios</a>
+                <a class='simulator' href="/index.html">Simulador de precios</a>
             </div>
             <img class='image-home' src="./images/fondo.png" alt="imagen home">
         </div>
@@ -92,6 +103,7 @@
         </div>
     </div>
 </body>
+<script src="./index.js"></script>
 <footer>
     <p>Copyright © 2021 Maacgraficas S.A.S. Todos los derechos reservados.</p>
 </footer>
