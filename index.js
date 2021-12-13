@@ -48,7 +48,6 @@ const formPuzzleDigital = `
 `
 
 function showProduct (product) {
-    console.log('entrooo');
     switch (product) {
         case 1:
             document.getElementById("container-forms").innerHTML = formDesign;
@@ -57,7 +56,7 @@ function showProduct (product) {
             document.getElementById("container-forms").innerHTML = formSeo;
             break;
         case 3:
-            document.getElementById("container-forms").innerHTML = formDesign;
+            document.getElementById("container-forms").innerHTML = formAnalitycs;
             break;
         case 4:
             document.getElementById("container-forms").innerHTML = formAnalitycs;
