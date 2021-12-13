@@ -259,6 +259,7 @@ header .menu-mobile {
   -ms-grid-rows: 180px;
       grid-template-rows: 180px;
   grid-gap: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 991px) {
@@ -309,6 +310,7 @@ header .menu-mobile {
 
 .container-all-site .container .container-form .container-cards .card .label-card {
   font-family: 'Roboto', sans-serif;
+  cursor: pointer;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;

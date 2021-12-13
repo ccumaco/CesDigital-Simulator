@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Site Miguel & Carlos</title>
+    <title>Macgraficas - Simulador</title>
     <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
     
 </head>
@@ -47,56 +47,58 @@
                 <a href="index.html" class="comeback"><i class="fas fa-arrow-left"></i> Volver</a>
             </div>
             <div class="container-form">
-                <form action="index.html" method="post">
+                <form action="index.html" method="post" >
                     <h1 class="title-simulator">Simulador de precios</h1>
-                    <div class="container-cards">
-                        <div class="card">
-                            <input class="input-style" type="radio" name="service" id="design">
-                            <label class="label-card" for="design">
-                                <img class="image-card" src="./images/code.png" alt="imagen diseño web">
-                                Diseño de sitios web
-                            </label>
+                        <div class="container-cards">
+                            <div class="card" onclick='showProduct(1)'>
+                                <input class="input-style" type="radio" name="service" id="design" checked>
+                                <label class="label-card" for="design">
+                                    <img class="image-card" src="./images/code.png" alt="imagen diseño web">
+                                    Diseño de sitios web
+                                </label>
+                            </div>
+                            <div class="card" onclick='showProduct(2)'>
+                                <input class="input-style" type="radio" name="service" id="seo">
+                                <label class="label-card" for="seo">
+                                    <img class="image-card" src="./images/seo.png" alt="imagen de seo">
+                                    Posicionamiento SEO
+                                </label>
+                            </div>
+                            <div class="card" onclick='showProduct(3)'>
+                                <input class="input-style" type="radio" name="service" id="analitycs">
+                                <label class="label-card" for="analitycs">
+                                    <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
+                                    Analitica web
+                                </label>
+                            </div>
+                            <div class="card" onclick='showProduct(4)'>
+                                <input class="input-style" type="radio" name="service" id="piece">
+                                <label class="label-card" for="piece">
+                                    <img class="image-card" src="./images/computer.png" alt="imagen piezas digitales">
+                                    Diseño de piezas digitales
+                                </label>
+                            </div>
                         </div>
-                        <div class="card">
-                            <input class="input-style" type="radio" name="service" id="seo">
-                            <label class="label-card" for="seo">
-                                <img class="image-card" src="./images/seo.png" alt="imagen de seo">
-                                Posicionamiento SEO
-                            </label>
+                        <div  id='container-forms'>
+                        <select class="type-of-site" name="typeOfSite" id="typeOfSite">
+                            <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
+                            <option value="Ecommerce">Ecommerce</option>
+                            <option value="Langind">Langind</option>
+                            <option value="Trivia">Trivia</option>
+                        </select>
+                        <p class="number-pages">Número de paginas internas</p>
+                        <input class="input-range" type="range" min="0" max="5" value="5" step="1">
+                        <div class="components">
+                            <p class="title-components">Selecciona uno o varios componentes internos</p>
+                            <label class="label-components" for="Videos">Videos</label>
+                            <input class="input-components" type="checkbox" name="Components" id="Videos">
+                            <label class="label-components" for="Videos2">Galeria de fotos</label>
+                            <input class="input-components" type="checkbox" name="Components" id="Videos2">
+                            <label class="label-components" for="Videos3">Redes sociales</label>
+                            <input class="input-components" type="checkbox" name="Components" id="Videos3">
+                            <label class="label-components" for="Videos4">Formulario de contacto</label>
+                            <input class="input-components" type="checkbox" name="Components" id="Videos4">
                         </div>
-                        <div class="card">
-                            <input class="input-style" type="radio" name="service" id="analitycs">
-                            <label class="label-card" for="analitycs">
-                                <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
-                                Analitica web
-                            </label>
-                        </div>
-                        <div class="card">
-                            <input class="input-style" type="radio" name="service" id="piece">
-                            <label class="label-card" for="piece">
-                                <img class="image-card" src="./images/computer.png" alt="imagen piezas digitales">
-                                Diseño de piezas digitales
-                            </label>
-                        </div>
-                    </div>
-                    <select class="type-of-site" name="typeOfSite" id="typeOfSite">
-                        <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
-                        <option value="Ecommerce">Ecommerce</option>
-                        <option value="Langind">Langind</option>
-                        <option value="Trivia">Trivia</option>
-                    </select>
-                    <p class="number-pages">Número de paginas internas</p>
-                    <input class="input-range" type="range" min="0" max="5" value="5" step="1">
-                    <div class="components">
-                        <p class="title-components">Selecciona uno o varios componentes internos</p>
-                        <label class="label-components" for="Videos">Videos</label>
-                        <input class="input-components" type="checkbox" name="Components" id="Videos">
-                        <label class="label-components" for="Videos2">Galeria de fotos</label>
-                        <input class="input-components" type="checkbox" name="Components" id="Videos2">
-                        <label class="label-components" for="Videos3">Redes sociales</label>
-                        <input class="input-components" type="checkbox" name="Components" id="Videos3">
-                        <label class="label-components" for="Videos4">Formulario de contacto</label>
-                        <input class="input-components" type="checkbox" name="Components" id="Videos4">
                     </div>
                 </form>
                 <div class="container-cost">
