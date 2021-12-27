@@ -4,13 +4,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
-    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-    <title>Macgraficas - home</title>
+    <title>Responsive</title>
 </head>
+<body>
+    <div id="contenedor-principal">
 <header>
     <div class="container-header">
         <a href="/home.html">
@@ -34,17 +38,20 @@
         </ul>
     </div>
 </header>
-<body>
-    <div class="container-home">
+<div class="container-home">
         <div class="banner-step1">
             <div class="container-text">
-                <h2 class='title-home'>Soluciones digitales para tu empresa.</h2>
+                <h1 class='title-home'><span class="titulo1">Soluciones digitales</span>
+                    <span class="titulo2">para tu empresa.</span></h1>
                 <p class='paragraph-home'>Diseñamos, implementamos, posicionamos y monitoreamos tu sitio web</p>
-                <a class='simulator' href="/index.html">Simulador de precios</a>
+                <a class='simulator' href="/index.html">Simulador de precios <i class="fas fa-chevron-right"></i></a>
             </div>
             <img class='image-home' src="./images/fondo.png" alt="imagen home">
         </div>
-        <h2 class='subtitle'>La mejor solución</h2>
+        <div class="titulos">
+            <p class="sombra-tit">Nuestra solución</p>
+            <h2 class='subtitle'>La mejor solución</h2>
+        </div>
         <div class="container-cards">
             <div class="card">
                 <div class="label-card" for="design">
@@ -75,36 +82,60 @@
                 </div>
             </div>
         </div>
-        <h2 class='subtitle' >Contáctanos</h2>
+        <div class="titulos">
+            <p class="sombra-tit">No pienses más</p>
+            <h2 class='subtitle' >Contáctanos</h2>
+        </div>
         <div class="container-form">
             <div class="atencion-client" id='contact'>
                 <h4 class='atencion'>Atención al cliente</h4>
+                <p><br></p>
                 <ul>
-                    <li class='rs'><i class="fab fa-facebook-f"></i>https://www.facebook.com/macgraficas</li>
-                    <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank' href="https://api.whatsapp.com/send?phone=+573203497458&text=Hola, Nececito mas informacion sobre los productos!">Contactanos a +57 3203497457</a></li>
-                    <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank' href="https://api.whatsapp.com/send?phone=+573132777667&text=Hola, Nececito mas informacion sobre los productos!">O tambien a +57 3132777667</a></li>
+                    <li class='rs'><i class="fab fa-facebook-f"></i><a>https://www.facebook.com/macgraficas</a></li>
+                    <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank' href="https://api.whatsapp.com/send?phone=+573203497458&text=Hola, Nececito mas informacion sobre los productos!">320 349 7457</a></li>
+                    <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank' href="https://api.whatsapp.com/send?phone=+573132777667&text=Hola, Nececito mas informacion sobre los productos!">313 277 7667</a></li>
+                    <li class='rs'>Bogota | Colombia</li>
                 </ul>
             </div>
             <div class="form-contact">
-                <form action="index.html" method="post">
-                    <input type="text" name="name" placeholder="Nombre">
-                    <input type="text" name="email" placeholder="Correo">
-                    <input type="text" name="phone" placeholder="Telefono">
-                    <select name="service" id="service">
-                        <option value="WEB">WEB</option>
-                        <option value="SEO">SEO</option>
-                        <option value="Analitycs">Analitycs</option>
-                        <option value="Diseño">Diseño</option>
-                    </select>
-                    <textarea name="message" placeholder="Mensaje"></textarea>
-                    <input class='send-form' type="submit" value="Enviar">
+                <form action="index.html" class="formulario" name="formulario_registro" method="post">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" id="Nombre" name="nombre" class="etiquetas">
+                            <label for="nombre" class="label">Nombre completo</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="Email" name="email" class="etiquetas">
+                            <label for="email" class="label">Correo electrónico</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="phone" name="phone" class="etiquetas">
+                            <label for="phone" class="label">Celular</label>
+                        </div>
+                        <div class="input-group">
+                            <select name="service" id="service" class="etiquetas">
+                                <option value="WEB" disabled selected></option>
+                                <option value="WEB">WEB</option>
+                                <option value="SEO">SEO</option>
+                                <option value="Analitycs">Analitycs</option>
+                                <option value="Diseño">Diseño</option>
+                            </select>
+                            <label for="service" class="label">Servicio de interés</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea name="message" rows="6" class="etiquetas"></textarea>
+                            <label for="message" class="label">Comentarios</label>
+                        </div>
+                        <input class='send-form' type="submit" id="btn-submit" value="Enviar">
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-</body>
-<script src="./index.js"></script>
 <footer>
-    <p>Copyright © 2021 Maacgraficas S.A.S. Todos los derechos reservados.</p>
+    <p>Copyright © 2021 Macgraficas S.A.S. Todos los derechos reservados.</p>
 </footer>
+<script src="./index.js"></script>
+</div>
+</body>
 </html>

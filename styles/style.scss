@@ -35,7 +35,14 @@ $max-width: 1200px;
         }
     }
   }
-
+body{
+    background: $primary-color;
+    background-image: ("/images/fondo-rayas.svg");
+}
+#contenedor-principal{
+    max-width: 1366px;
+    margin: 0 auto;
+}
 header{
     position: relative;
     background: $primary-color;
@@ -198,13 +205,14 @@ header{
         .container-form {
             display: flex;
             justify-content: space-between;
+            max-width: 1000px;
             @include screen("md") {
                 flex-direction: column;
             }
             .container-cards {
                 display: flex;
+                flex-wrap: nowrap;
                 justify-content: space-between;
-                align-items: flex-start;
                 @include screen("md") {
                     flex-direction: column;
                 }
@@ -438,8 +446,7 @@ header{
 
 .container-home{
     background-color: $primary-color;
-    min-height: 100vh;
-    .banner-step1{
+       .banner-step1{
         padding: 2rem;
         display: flex;
         align-items: center;
@@ -463,10 +470,11 @@ header{
             .paragraph-home{
                 color: $white-color;
                 font-size: 18px;
+                font-weight: 300;
             }
             .simulator{
                 color: $white-color;
-                padding: 0.6rem 1rem;
+                padding: 0.9rem 2rem;
                 background: $secondary-color;
                 margin-top: 1rem;
                 border-radius: 10px;
@@ -499,7 +507,6 @@ header{
     .container-cards {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
         max-width: $max-width;
         margin: 0 auto;
         padding-bottom: 1rem;
@@ -514,7 +521,7 @@ header{
             padding: 1rem;
             position: relative;
             border-radius: 10px;
-            display: grid;
+            display: flex;
             width: 100%;
             grid-template-columns: 1fr;
             grid-template-rows: minmax(280px, fit-content);
@@ -590,15 +597,18 @@ header{
         display: flex;
         justify-content: space-evenly;
         align-items: flex-start;
+        max-width: 1000px;
+        margin: 0 auto;
         @include screen("md") {
             flex-direction: column;
             align-items: center;
         }
         .atencion-client{
+            width: 100%;
             color: #748090;
             .atencion{
                 font-family: 'Roboto', sans-serif;
-                color: $white-color;
+                color: $white-color !important;
                 @include screen("md") {
                     text-align: center;
                 }
@@ -619,7 +629,7 @@ header{
                     }
                     a{
                         vertical-align: top;
-                        color: #748090;
+                        color: $white-color;
                         text-decoration: none;
                         font-family: 'Roboto', sans-serif;
                         font-size: 14px;
@@ -628,7 +638,7 @@ header{
             }
         }
         .form-contact{
-            width: 30%;
+            width: 100%;
             box-sizing: content-box;
             @include screen("md") {
                 width: 90%;
@@ -639,14 +649,26 @@ header{
                 display: flex;
                 flex-direction: column;
                 input, select, textarea{
-                    color: #748090;
-                    margin: 1rem 0;
-                    padding: 20px 10px;
-                    background-color: transparent;
-                    border: 1px solid #748090;
+                    font-size: 20px;
+                    color: $white-color;
                     width: 100%;
+                    outline: none;
+                    padding: 16px 20px;
+                    background: none;
+                    border: 1.5px solid white; 
                     border-radius: 10px;
-                    font-family: 'Roboto', sans-serif;
+                    &:focus,
+                    &:active{
+                        outline: none;
+                        border: 1.5px solid $secondary-color;
+                    }
+                    &.error{
+                        border: 1.5px solid red;
+                        + label{
+                            color: red;
+                        }
+                    }
+                    
                     @include screen("md") {
                         width: auto;
                     }
@@ -682,7 +704,59 @@ header{
         }
     }
 }
-
+.titulo1{
+    font-size: 3.7rem;
+    display: block;
+    font-weight: 500;
+}
+.titulo2{
+    font-size: 4.7rem;
+    font-weight: 100;
+    display: block;
+}
+.titulos{
+    position: relative;
+    text-align: center;
+    .sombra-tit{
+        font-size: 80px;
+        font-family: 'Roboto', sans-serif; 
+        color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #0093b83a;
+        position: absolute;
+        transform: translateX(50%);
+        top: -50px;
+    }
+    .subtitle{
+        position: relative;
+        margin-bottom: 80px;
+        margin-top: 80px;
+    }
+}
+.input-group{
+    position: relative;
+    margin-bottom: 17px;
+        label {
+            color:$white-color;
+            position: absolute;
+            top: 22px;
+            left: 10px;
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            line-height: 16px;
+            margin-left: 16px;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            &.active{
+            top: -8px;
+            font-size: 12px;
+            background-color: $primary-color;
+            padding: 0px 8px;
+            color: #b9c1cc;
+        }
+    }
+        
+} 
 footer {
     background: $primary-color;
     text-align: center;
