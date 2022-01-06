@@ -375,6 +375,97 @@ header .menu-mobile {
   color: #fff;
 }
 
+.container-all-site .container .container-form .container-steps-analitycs {
+  margin-top: 1rem;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .option-analitycs {
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .option-analitycs .tooltip {
+  position: relative;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .option-analitycs .tooltip .question {
+  color: #0092B8;
+  position: relative;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .option-analitycs .tooltip .question .text-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .option-analitycs .tooltip .question:hover .text-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #2196F3;
+          box-shadow: 0 0 1px #2196F3;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .slider.round {
+  border-radius: 34px;
+}
+
+.container-all-site .container .container-form .container-steps-analitycs .slider.round:before {
+  border-radius: 50%;
+}
+
 .container-all-site .container .container-form .container-steps-seo {
   margin-top: 1rem;
   display: -webkit-box;

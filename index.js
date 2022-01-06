@@ -64,7 +64,52 @@ const formSeo = `
 `
 
 const formAnalitycs = `
-    <h1>Contenedorrr Analitycs</h1>
+<div class="container-steps-analitycs">
+    <p class="option-analitycs">Implementación de Google Tag manager 
+    <span class="tooltip">
+        <i class="fas fa-question-circle question">
+        <span class="text-tooltip">texto tooltip</span>
+        </i>
+    </span>
+    </p>
+    <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+    <p class="option-analitycs">Implementación de Google Analytics 
+    <span class="tooltip">
+        <i class="fas fa-question-circle question">
+        <span class="text-tooltip">texto tooltip</span>
+        </i>
+    </span>
+    </p>
+    <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+    <p class="option-analitycs">Implementación de eventos, objetivos u otras personalizaciones 
+    <span class="tooltip">
+        <i class="fas fa-question-circle question">
+        <span class="text-tooltip">texto tooltip</span>
+        </i>
+    </span>
+    </p>
+    <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+    <p class="option-analitycs">Tablero en Data Studio con reporte 
+    <span class="tooltip">
+        <i class="fas fa-question-circle question">
+        <span class="text-tooltip">texto tooltip</span>
+        </i>
+    </span>
+    </p>
+    <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+</div>
 `
 
 const formPuzzleDigital = `
@@ -83,9 +128,10 @@ function showProduct(product) {
             document.getElementById("container-forms").innerHTML = formAnalitycs;
             break;
         case 4:
-            document.getElementById("container-forms").innerHTML = formAnalitycs;
+            document.getElementById("container-forms").innerHTML = formPuzzleDigital;
             break;
         default:
             break;
     }
 }
+showProduct(3)
