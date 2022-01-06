@@ -1,10 +1,10 @@
 
 let menuMobile = false;
-function openMenuMobile(state){
-    if(state){
+function openMenuMobile(state) {
+    if (state) {
         document.getElementsByClassName("menu-mobile")[0].style.display = "flex";
         menuMobile = true;
-    }else{
+    } else {
         document.getElementsByClassName("menu-mobile")[0].style.display = "none";
         menuMobile = false;
     }
@@ -12,31 +12,55 @@ function openMenuMobile(state){
 
 openMenuMobile(false);
 const formDesign = `
-<h1>Contenedorrr</h1>
-    <form action="index.html" method="post" id='form-seo'>
-    <select class="type-of-site" name="typeOfSite" id="typeOfSite">
-        <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
-        <option value="Ecommerce">Ecommerce</option>
-        <option value="Langind">Langind</option>
-        <option value="Trivia">Trivia</option>
-    </select>
-    <p class="number-pages">Número de paginas internas</p>
-    <input class="input-range" type="range" min="0" max="5" value="5" step="1">
-    <div class="components">
-        <p class="title-components">Selecciona uno o varios componentes internos</p>
-        <label class="label-components" for="Videos">Videos</label>
-        <input class="input-components" type="checkbox" name="Components" id="Videos">
-        <label class="label-components" for="Videos2">Galeria de fotos</label>
-        <input class="input-components" type="checkbox" name="Components" id="Videos2">
-        <label class="label-components" for="Videos3">Redes sociales</label>
-        <input class="input-components" type="checkbox" name="Components" id="Videos3">
-        <label class="label-components" for="Videos4">Formulario de contacto</label>
-        <input class="input-components" type="checkbox" name="Components" id="Videos4">
-    </div>
-    </form>
+        <select class="type-of-site" name="typeOfSite" id="typeOfSite">
+            <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
+            <option value="Ecommerce">Ecommerce</option>
+            <option value="Langind">Langind</option>
+            <option value="Trivia">Trivia</option>
+        </select>
+        <p class="number-pages">Número de paginas internas</p>
+        <input class="input-range" type="range" min="0" max="5" value="5" step="1">
+        <div class="components">
+            <p class="title-components">Selecciona uno o varios componentes internos</p>
+            <input class="input-components" type="checkbox" name="Components" id="Videos">
+            <label class="label-components" for="Videos">Videos</label>
+            <input class="input-components" type="checkbox" name="Components" id="Videos2">
+            <label class="label-components" for="Videos2">Galeria de fotos</label>
+            <input class="input-components" type="checkbox" name="Components" id="Videos3">
+            <label class="label-components" for="Videos3">Redes sociales</label>
+            <input class="input-components" type="checkbox" name="Components" id="Videos4">
+            <label class="label-components" for="Videos4">Formulario de contacto</label>
+        </div>
 `
 const formSeo = `
-<h1>Contenedorrr SEO</h1>
+<div class="container-steps-seo">
+    <div class="step">
+        <p class="title-step">Paso 1</p>
+        <p class="paragraph-step">El primer mes se hace un diagnóstico del sitio y se realizan las mejoras</p>
+    </div>
+    <div class="step">
+        <p class="title-step">Paso 2</p>
+        <p class="paragraph-step">los siguientes meses se hacen revisiones una vez por semana, ajustes y mejoras.</p>
+    </div>
+    <div class="step">
+        <p class="title-step">Paso 3</p>
+        <p class="paragraph-step">Se entrega un tablero en datastudio con el avance logrado en el tiempo contratado.</p>
+    </div>
+    <div class="step">
+        <p class="title-step">Paso 4</p>
+        <p class="paragraph-step">Minimo 6 meses de contrato</p>
+        <input onchange="console.log('pagina')" type="range" class="ticks" min="6" value="6" max="12" step="1" list="ticks">
+        <datalist id="ticks">
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+        </datalist>
+    </div>
+</div>
 `
 
 const formAnalitycs = `
@@ -47,7 +71,7 @@ const formPuzzleDigital = `
     <h1>Contenedorrr Puzzle Digital</h1>
 `
 
-function showProduct (product) {
+function showProduct(product) {
     switch (product) {
         case 1:
             document.getElementById("container-forms").innerHTML = formDesign;
@@ -65,35 +89,3 @@ function showProduct (product) {
             break;
     }
 }
-
-(function(){
-    var formulario = document.formulario_registro,
-        elementos = formulario.elements;
-    var enviar = function(e){
-        if (!validarInputs()){
-            console.log("falto validar inputs");
-            e.preventDefault();
-        } else if (!validarRadios()){
-            console.log("falto validar radio");
-            e.preventDefault();
-        }
-    };
-
-var focusInput = function(){
-    this.parentElement.children[1].className = "label active";
-    this.parentElement.children[0].className = this.parentElement.children[0].className.replace("error", "");
-}
-var blurInput = function(){
-    if (this.value <= 0){
-    this.parentElement.children[1].className = "label";
-    this.parentElement.children[0].className = this.parentElement.children[0].className + " error";
-}
-};
-formulario.addEventListener("submit", enviar);
-for (var i = 0; i < elementos.length; i++){
-    if (elementos[i].className == "etiquetas"){
-        elementos[i].addEventListener("focus", focusInput);
-        elementos[i].addEventListener("blur", blurInput);
-    }
-}
-}())

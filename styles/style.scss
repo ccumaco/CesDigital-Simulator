@@ -205,7 +205,6 @@ header{
         .container-form {
             display: flex;
             justify-content: space-between;
-            max-width: 1000px;
             @include screen("md") {
                 flex-direction: column;
             }
@@ -314,7 +313,47 @@ header{
                 display: block;
                 color: $white-color;
             }
-
+            .container-steps-seo{
+                margin-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+                .step{
+                    width: calc(100% - 10px);
+                    margin-left: 0;
+                    padding-right: 20px;
+                    position: relative;
+                    &::before{
+                        content: '>';
+                        top: 50%;
+                        right: 10px;
+                        position: absolute;
+                        color: #FFC400;
+                    }
+                    .title-step{
+                        color: #FFC400;
+                        font-family: 'Roboto';
+                        font-size: 1.2rem;
+                        font-weight: bolder;
+                    }
+                    .paragraph-step{
+                        color: #fff;
+                        font-size: 0.8rem;
+                        font-family: 'Roboto';
+                    }
+                    &:last-child{
+                        &::before{
+                            content: '';
+                        }
+                        .paragraph-step{
+                            color: rgb(212, 212, 212);
+                            font-size: 0.7rem;
+                        }
+                    }
+                    .ticks{
+                        color: #fff;
+                    }
+                }
+            }
             .components {
                 margin: 1rem 0;
                 display: flex;
@@ -341,10 +380,17 @@ header{
 
                 .input-components {
                     display: none;
+                    &:checked + label {
+                        background: #fff;
+                        font-weight: bold;
+                    }
                 }
             }
-
+            form{
+                flex-basis: 100%;
+            }
             .container-cost {
+                flex-basis: 50%;
                 margin-left: 3rem;
                 @include screen("md") {
                     margin: 0%;
@@ -495,6 +541,37 @@ header{
             }
         }
     }
+    .titulo1{
+        font-size: 3.7rem;
+        display: block;
+        font-weight: 500;
+    }
+    .titulo2{
+        font-size: 4.7rem;
+        font-weight: 100;
+        display: block;
+    }
+    .titulos{
+        position: relative;
+        text-align: center;
+        .sombra-tit{
+            font-size: 80px;
+            font-family: 'Roboto', sans-serif; 
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #0093b83a;
+            position: absolute;
+            top: -45px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+        .subtitle{
+            position: relative;
+            margin-bottom: 80px;
+            margin-top: 80px;
+        }
+    }
     .subtitle{
         color: $white-color;
         font-family: 'Roboto', sans-serif;
@@ -504,6 +581,7 @@ header{
         text-transform: uppercase;
         margin: 1.5rem 0;
     }
+
     .container-cards {
         display: flex;
         justify-content: space-between;
@@ -593,6 +671,7 @@ header{
             }
         }
     }
+    
     .container-form{
         display: flex;
         justify-content: space-evenly;
@@ -648,6 +727,31 @@ header{
                 width: 100%;
                 display: flex;
                 flex-direction: column;
+                
+                .input-group{
+                    position: relative;
+                    margin-bottom: 17px;
+                        label {
+                            color:$white-color;
+                            position: absolute;
+                            top: 22px;
+                            left: 10px;
+                            font-size: 20px;
+                            font-family: 'Roboto', sans-serif;
+                            line-height: 16px;
+                            margin-left: 16px;
+                            -o-transition: all 0.3s ease;
+                            transition: all 0.3s ease;
+                            &.active{
+                            top: -8px;
+                            font-size: 12px;
+                            background-color: $primary-color;
+                            padding: 0px 8px;
+                            color: #b9c1cc;
+                        }
+                    }
+                        
+                } 
                 input, select, textarea{
                     font-size: 20px;
                     color: $white-color;
@@ -704,59 +808,8 @@ header{
         }
     }
 }
-.titulo1{
-    font-size: 3.7rem;
-    display: block;
-    font-weight: 500;
-}
-.titulo2{
-    font-size: 4.7rem;
-    font-weight: 100;
-    display: block;
-}
-.titulos{
-    position: relative;
-    text-align: center;
-    .sombra-tit{
-        font-size: 80px;
-        font-family: 'Roboto', sans-serif; 
-        color: transparent;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #0093b83a;
-        position: absolute;
-        transform: translateX(50%);
-        top: -50px;
-    }
-    .subtitle{
-        position: relative;
-        margin-bottom: 80px;
-        margin-top: 80px;
-    }
-}
-.input-group{
-    position: relative;
-    margin-bottom: 17px;
-        label {
-            color:$white-color;
-            position: absolute;
-            top: 22px;
-            left: 10px;
-            font-size: 20px;
-            font-family: 'Roboto', sans-serif;
-            line-height: 16px;
-            margin-left: 16px;
-            -o-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            &.active{
-            top: -8px;
-            font-size: 12px;
-            background-color: $primary-color;
-            padding: 0px 8px;
-            color: #b9c1cc;
-        }
-    }
-        
-} 
+
+
 footer {
     background: $primary-color;
     text-align: center;
