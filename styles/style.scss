@@ -834,7 +834,7 @@ header{
                     }
                         
                 } 
-                input, select, textarea{
+                input, select, textarea, button{
                     font-size: 20px;
                     color: $white-color;
                     width: 100%;
@@ -880,7 +880,11 @@ header{
                         }
                         &:hover{
                             background-color: #748090;
-                            color: $secondary-color;
+                            color: $white-color;
+                        }
+                        &[disabled]{
+                            background-color: #748090;
+                            color: $white-color;
                         }
                     }
                     option{

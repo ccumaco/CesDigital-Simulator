@@ -1,123 +1,136 @@
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     <title>Responsive</title>
 </head>
+
 <body>
     <div id="contenedor-principal">
-<header>
-    <div class="container-header">
-        <a href="/home.html">
-            <img class='logo-team' src="./images/computer.png" alt="logo Maacgraficas">
-        </a>
-        <div class="container-menu">
-            <ul>
-                <li><a href="home.html" onclick='openMenuMobile(!menuMobile)'>Inicio</a></li>
-                <li><a href="index.html" onclick='openMenuMobile(!menuMobile)'>Nuestros servicios</a></li>
-                <li><a href="#contact" onclick='openMenuMobile(!menuMobile)'>Contactanos</a></li>
-            </ul>
-            <i class="fas fa-bars image-mobile" onclick='openMenuMobile(!menuMobile)' ></i>
-        </div>
-    </div>
-    <div class="menu-mobile">
-        <i class="fas fa-window-close close-btn" onclick='openMenuMobile(!menuMobile)'></i>
-        <ul>
-            <li class='active'><a href="home.html">Inicio</a></li>
-            <li><a href="index.html">Nuestros servicios</a></li>
-            <li><a href="home.html#contact">Contactanos</a></li>
-        </ul>
-    </div>
-</header>
-<div class="container-home">
-        <div class="banner-step1">
-            <div class="container-text">
-                <h1 class='title-home'><span class="titulo1">Soluciones digitales</span>
-                    <span class="titulo2">para tu empresa.</span></h1>
-                <p class='paragraph-home'>Diseñamos, implementamos, posicionamos y monitoreamos tu sitio web</p>
-                <a class='simulator' href="/index.html">Simulador de precios <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <img class='image-home' src="./images/fondo.png" alt="imagen home">
-        </div>
-        <div class="titulos">
-            <p class="sombra-tit">Nuestra solución</p>
-            <h2 class='subtitle'>La mejor solución</h2>
-        </div>
-        <div class="container-cards">
-            <div class="card">
-                <div class="label-card" for="design">
-                    <img class="image-card" src="./images/code.png" alt="imagen diseño web">
-                    <p class='title-information'> Diseño de sitios web</p>
-                    <p class='information'>Diseño y desarrollo de sitios web a la medida, paginas de aterrizaje, sitios de comercio electrónico entre otros.</p>
+        <header>
+            <div class="container-header">
+                <a href="/home.html">
+                    <img class='logo-team' src="./images/computer.png" alt="logo Maacgraficas">
+                </a>
+                <div class="container-menu">
+                    <ul>
+                        <li><a href="home.html" onclick='openMenuMobile(!menuMobile)'>Inicio</a></li>
+                        <li><a href="index.html" onclick='openMenuMobile(!menuMobile)'>Nuestros servicios</a></li>
+                        <li><a href="#contact" onclick='openMenuMobile(!menuMobile)'>Contactanos</a></li>
+                    </ul>
+                    <i class="fas fa-bars image-mobile" onclick='openMenuMobile(!menuMobile)'></i>
                 </div>
             </div>
-            <div class="card">
-                <div class="label-card" for="seo">
-                    <img class="image-card" src="./images/seo.png" alt="imagen de seo">
-                    <p class='title-information'> Posicionamiento SEO</p>
-                    <p class='information'>Posicionamiento y optimización de sitios web de manera orgánica en los primeros lugares en buscadores como Google</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="label-card" for="analitycs">
-                    <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
-                    <p class='title-information'> Analitica web</p>
-                    <p class='information'>Implementación de google analytics en sitios web, para el seguimiento y monitoreo de los usuarios.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="label-card" for="piece">
-                    <img class="image-card" src="./images/computer.png" alt="imagen piezas digitales">
-                    <p class='title-information'> Diseño de piezas digitales</p>
-                    <p class='information'>Diseño de banners, logotipos, post para redes, Manuales de marca, y cualquier elemento digital públicitario o de marca.</p>
-                </div>
-            </div>
-        </div>
-        <div class="titulos">
-            <p class="sombra-tit">No pienses más</p>
-            <h2 class='subtitle' >Contáctanos</h2>
-        </div>
-        <div class="container-form">
-            <div class="atencion-client" id='contact'>
-                <h4 class='atencion'>Atención al cliente</h4>
-                <p><br></p>
+            <div class="menu-mobile">
+                <i class="fas fa-window-close close-btn" onclick='openMenuMobile(!menuMobile)'></i>
                 <ul>
-                    <li class='rs'><i class="fab fa-facebook-f"></i><a>https://www.facebook.com/macgraficas</a></li>
-                    <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank' href="https://api.whatsapp.com/send?phone=+573203497458&text=Hola, Nececito mas informacion sobre los productos!">320 349 7457</a></li>
-                    <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank' href="https://api.whatsapp.com/send?phone=+573132777667&text=Hola, Nececito mas informacion sobre los productos!">313 277 7667</a></li>
-                    <li class='rs'>Bogota | Colombia</li>
+                    <li class='active'><a href="home.html">Inicio</a></li>
+                    <li><a href="index.html">Nuestros servicios</a></li>
+                    <li><a href="home.html#contact">Contactanos</a></li>
                 </ul>
             </div>
-            <div class="form-contact">
-                <form action="index.html" method="post">
-                    <input type="text" name="name" placeholder="Nombre">
-                    <input type="text" name="email" placeholder="Correo">
-                    <input type="text" name="phone" placeholder="Telefono">
-                    <select name="service" id="service">
-                        <option value="WEB">WEB</option>
-                        <option value="SEO">SEO</option>
-                        <option value="Analitycs">Analitycs</option>
-                        <option value="Diseño">Diseño</option>
-                    </select>
-                    <textarea name="message" placeholder="Mensaje"></textarea>
-                    <input class='send-form' type="submit" value="Enviar">
-                </form>
+        </header>
+        <div class="container-home">
+            <div class="banner-step1">
+                <div class="container-text">
+                    <h1 class='title-home'><span class="titulo1">Soluciones digitales</span>
+                        <span class="titulo2">para tu empresa.</span>
+                    </h1>
+                    <p class='paragraph-home'>Diseñamos, implementamos, posicionamos y monitoreamos tu sitio web</p>
+                    <a class='simulator' href="/index.html">Simulador de precios <i
+                            class="fas fa-chevron-right"></i></a>
+                </div>
+                <img class='image-home' src="./images/fondo.png" alt="imagen home">
+            </div>
+            <div class="titulos">
+                <p class="sombra-tit">Nuestra solución</p>
+                <h2 class='subtitle'>La mejor solución</h2>
+            </div>
+            <div class="container-cards">
+                <div class="card">
+                    <div class="label-card" for="design">
+                        <img class="image-card" src="./images/code.png" alt="imagen diseño web">
+                        <p class='title-information'> Diseño de sitios web</p>
+                        <p class='information'>Diseño y desarrollo de sitios web a la medida, paginas de aterrizaje,
+                            sitios de comercio electrónico entre otros.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label-card" for="seo">
+                        <img class="image-card" src="./images/seo.png" alt="imagen de seo">
+                        <p class='title-information'> Posicionamiento SEO</p>
+                        <p class='information'>Posicionamiento y optimización de sitios web de manera orgánica en los
+                            primeros lugares en buscadores como Google</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label-card" for="analitycs">
+                        <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
+                        <p class='title-information'> Analitica web</p>
+                        <p class='information'>Implementación de google analytics en sitios web, para el seguimiento y
+                            monitoreo de los usuarios.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="label-card" for="piece">
+                        <img class="image-card" src="./images/computer.png" alt="imagen piezas digitales">
+                        <p class='title-information'> Diseño de piezas digitales</p>
+                        <p class='information'>Diseño de banners, logotipos, post para redes, Manuales de marca, y
+                            cualquier elemento digital públicitario o de marca.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="titulos">
+                <p class="sombra-tit">No pienses más</p>
+                <h2 class='subtitle'>Contáctanos</h2>
+            </div>
+            <div class="container-form">
+                <div class="atencion-client" id='contact'>
+                    <h4 class='atencion'>Atención al cliente</h4>
+                    <p><br></p>
+                    <ul>
+                        <li class='rs'><i class="fab fa-facebook-f"></i><a>https://www.facebook.com/macgraficas</a></li>
+                        <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank'
+                                href="https://api.whatsapp.com/send?phone=+573203497458&text=Hola, Nececito mas informacion sobre los productos!">320
+                                349 7457</a></li>
+                        <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank'
+                                href="https://api.whatsapp.com/send?phone=+573132777667&text=Hola, Nececito mas informacion sobre los productos!">313
+                                277 7667</a></li>
+                        <li class='rs'>Bogota | Colombia</li>
+                    </ul>
+                </div>
+                <div class="form-contact">
+                    <form action="Contactenos.php" method="post">
+                        <input type="text" name="name" id="name" class="name" placeholder="NOMBRE">
+                        <input type="text" name="mail" id="mail" class="email" placeholder="CORREO">
+                        <input type="text" name="phone" id="subject" class="subject" placeholder="TELÉFONO">
+                        <select name="service" id="service">
+                            <option value="WEB">WEB</option>
+                            <option value="SEO">SEO</option>
+                            <option value="Analitycs">Analitycs</option>
+                            <option value="Diseño">Diseño</option>
+                        </select>
+                        <textarea name="message" class="message" placeholder="MENSAJE ... " id="message"></textarea>
+                        <button disabled type="submit" class="send-form">ENVIAR </button>
+                    </form>
+                </div>
             </div>
         </div>
+        <footer>
+            <p>Copyright © 2021 Macgraficas S.A.S. Todos los derechos reservados.</p>
+        </footer>
+        <script src="./index.js"></script>
     </div>
-<footer>
-    <p>Copyright © 2021 Macgraficas S.A.S. Todos los derechos reservados.</p>
-</footer>
-<script src="./index.js"></script>
-</div>
 </body>
+
 </html>

@@ -1061,7 +1061,7 @@ header .menu-mobile {
   color: #b9c1cc;
 }
 
-.container-home .container-form .form-contact form input, .container-home .container-form .form-contact form select, .container-home .container-form .form-contact form textarea {
+.container-home .container-form .form-contact form input, .container-home .container-form .form-contact form select, .container-home .container-form .form-contact form textarea, .container-home .container-form .form-contact form button {
   font-size: 20px;
   color: #fff;
   width: 100%;
@@ -1073,42 +1073,42 @@ header .menu-mobile {
   border-radius: 10px;
 }
 
-.container-home .container-form .form-contact form input:focus, .container-home .container-form .form-contact form input:active, .container-home .container-form .form-contact form select:focus, .container-home .container-form .form-contact form select:active, .container-home .container-form .form-contact form textarea:focus, .container-home .container-form .form-contact form textarea:active {
+.container-home .container-form .form-contact form input:focus, .container-home .container-form .form-contact form input:active, .container-home .container-form .form-contact form select:focus, .container-home .container-form .form-contact form select:active, .container-home .container-form .form-contact form textarea:focus, .container-home .container-form .form-contact form textarea:active, .container-home .container-form .form-contact form button:focus, .container-home .container-form .form-contact form button:active {
   outline: none;
   border: 1.5px solid #0092B8;
 }
 
-.container-home .container-form .form-contact form input.error, .container-home .container-form .form-contact form select.error, .container-home .container-form .form-contact form textarea.error {
+.container-home .container-form .form-contact form input.error, .container-home .container-form .form-contact form select.error, .container-home .container-form .form-contact form textarea.error, .container-home .container-form .form-contact form button.error {
   border: 1.5px solid red;
 }
 
-.container-home .container-form .form-contact form input.error + label, .container-home .container-form .form-contact form select.error + label, .container-home .container-form .form-contact form textarea.error + label {
+.container-home .container-form .form-contact form input.error + label, .container-home .container-form .form-contact form select.error + label, .container-home .container-form .form-contact form textarea.error + label, .container-home .container-form .form-contact form button.error + label {
   color: red;
 }
 
 @media (max-width: 991px) {
-  .container-home .container-form .form-contact form input, .container-home .container-form .form-contact form select, .container-home .container-form .form-contact form textarea {
+  .container-home .container-form .form-contact form input, .container-home .container-form .form-contact form select, .container-home .container-form .form-contact form textarea, .container-home .container-form .form-contact form button {
     width: auto;
   }
 }
 
-.container-home .container-form .form-contact form input::-webkit-input-placeholder, .container-home .container-form .form-contact form select::-webkit-input-placeholder, .container-home .container-form .form-contact form textarea::-webkit-input-placeholder {
+.container-home .container-form .form-contact form input::-webkit-input-placeholder, .container-home .container-form .form-contact form select::-webkit-input-placeholder, .container-home .container-form .form-contact form textarea::-webkit-input-placeholder, .container-home .container-form .form-contact form button::-webkit-input-placeholder {
   color: #748090;
 }
 
-.container-home .container-form .form-contact form input:-ms-input-placeholder, .container-home .container-form .form-contact form select:-ms-input-placeholder, .container-home .container-form .form-contact form textarea:-ms-input-placeholder {
+.container-home .container-form .form-contact form input:-ms-input-placeholder, .container-home .container-form .form-contact form select:-ms-input-placeholder, .container-home .container-form .form-contact form textarea:-ms-input-placeholder, .container-home .container-form .form-contact form button:-ms-input-placeholder {
   color: #748090;
 }
 
-.container-home .container-form .form-contact form input::-ms-input-placeholder, .container-home .container-form .form-contact form select::-ms-input-placeholder, .container-home .container-form .form-contact form textarea::-ms-input-placeholder {
+.container-home .container-form .form-contact form input::-ms-input-placeholder, .container-home .container-form .form-contact form select::-ms-input-placeholder, .container-home .container-form .form-contact form textarea::-ms-input-placeholder, .container-home .container-form .form-contact form button::-ms-input-placeholder {
   color: #748090;
 }
 
-.container-home .container-form .form-contact form input::placeholder, .container-home .container-form .form-contact form select::placeholder, .container-home .container-form .form-contact form textarea::placeholder {
+.container-home .container-form .form-contact form input::placeholder, .container-home .container-form .form-contact form select::placeholder, .container-home .container-form .form-contact form textarea::placeholder, .container-home .container-form .form-contact form button::placeholder {
   color: #748090;
 }
 
-.container-home .container-form .form-contact form input.send-form, .container-home .container-form .form-contact form select.send-form, .container-home .container-form .form-contact form textarea.send-form {
+.container-home .container-form .form-contact form input.send-form, .container-home .container-form .form-contact form select.send-form, .container-home .container-form .form-contact form textarea.send-form, .container-home .container-form .form-contact form button.send-form {
   background-color: #0092B8;
   color: #fff;
   padding: 20px 10px;
@@ -1126,18 +1126,23 @@ header .menu-mobile {
 }
 
 @media (max-width: 991px) {
-  .container-home .container-form .form-contact form input.send-form, .container-home .container-form .form-contact form select.send-form, .container-home .container-form .form-contact form textarea.send-form {
+  .container-home .container-form .form-contact form input.send-form, .container-home .container-form .form-contact form select.send-form, .container-home .container-form .form-contact form textarea.send-form, .container-home .container-form .form-contact form button.send-form {
     width: 100%;
     padding: 0.5rem 0;
   }
 }
 
-.container-home .container-form .form-contact form input.send-form:hover, .container-home .container-form .form-contact form select.send-form:hover, .container-home .container-form .form-contact form textarea.send-form:hover {
+.container-home .container-form .form-contact form input.send-form:hover, .container-home .container-form .form-contact form select.send-form:hover, .container-home .container-form .form-contact form textarea.send-form:hover, .container-home .container-form .form-contact form button.send-form:hover {
   background-color: #748090;
-  color: #0092B8;
+  color: #fff;
 }
 
-.container-home .container-form .form-contact form input option, .container-home .container-form .form-contact form select option, .container-home .container-form .form-contact form textarea option {
+.container-home .container-form .form-contact form input.send-form[disabled], .container-home .container-form .form-contact form select.send-form[disabled], .container-home .container-form .form-contact form textarea.send-form[disabled], .container-home .container-form .form-contact form button.send-form[disabled] {
+  background-color: #748090;
+  color: #fff;
+}
+
+.container-home .container-form .form-contact form input option, .container-home .container-form .form-contact form select option, .container-home .container-form .form-contact form textarea option, .container-home .container-form .form-contact form button option {
   color: #000;
 }
 
