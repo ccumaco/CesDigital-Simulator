@@ -1066,6 +1066,7 @@ header .menu-mobile {
   color: #fff;
   width: 100%;
   outline: none;
+  margin-top: 1rem;
   padding: 16px 20px;
   background: none;
   border: 1.5px solid white;

@@ -98,36 +98,18 @@
                 </ul>
             </div>
             <div class="form-contact">
-                <form action="index.html" class="formulario" name="formulario_registro" method="post">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" id="Nombre" name="nombre" class="etiquetas">
-                            <label for="nombre" class="label">Nombre completo</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" id="Email" name="email" class="etiquetas">
-                            <label for="email" class="label">Correo electrónico</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="text" id="phone" name="phone" class="etiquetas">
-                            <label for="phone" class="label">Celular</label>
-                        </div>
-                        <div class="input-group">
-                            <select name="service" id="service" class="etiquetas">
-                                <option value="WEB" disabled selected></option>
-                                <option value="WEB">WEB</option>
-                                <option value="SEO">SEO</option>
-                                <option value="Analitycs">Analitycs</option>
-                                <option value="Diseño">Diseño</option>
-                            </select>
-                            <label for="service" class="label">Servicio de interés</label>
-                        </div>
-                        <div class="input-group">
-                            <textarea name="message" rows="6" class="etiquetas"></textarea>
-                            <label for="message" class="label">Comentarios</label>
-                        </div>
-                        <input class='send-form' type="submit" id="btn-submit" value="Enviar">
-                    </div>
+                <form action="index.html" method="post">
+                    <input type="text" name="name" placeholder="Nombre">
+                    <input type="text" name="email" placeholder="Correo">
+                    <input type="text" name="phone" placeholder="Telefono">
+                    <select name="service" id="service">
+                        <option value="WEB">WEB</option>
+                        <option value="SEO">SEO</option>
+                        <option value="Analitycs">Analitycs</option>
+                        <option value="Diseño">Diseño</option>
+                    </select>
+                    <textarea name="message" placeholder="Mensaje"></textarea>
+                    <input class='send-form' type="submit" value="Enviar">
                 </form>
             </div>
         </div>

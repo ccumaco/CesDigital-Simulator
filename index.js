@@ -10,6 +10,10 @@ function openMenuMobile(state) {
     }
 }
 
+function enviar_formulario(){
+    document.formulario1.submit()
+ }
+
 openMenuMobile(false);
 const formDesign = `
         <select class="type-of-site" name="typeOfSite" id="typeOfSite">
