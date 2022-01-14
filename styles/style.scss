@@ -39,6 +39,26 @@ body{
     background: $primary-color;
     background-image: ("/images/fondo-rayas.svg");
 }
+
+.modal-to-pay{
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.24);
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    z-index: 2;
+    .content-modal{
+        background-color: $white-color;
+        padding: 1rem;
+        border-radius: 10px;
+        .modal-header{
+        }
+    }
+}
+
 #contenedor-principal{
     max-width: 1366px;
     margin: 0 auto;
@@ -457,7 +477,7 @@ header{
                     border: 1px solid $secondary-color;
                     margin: 0.5rem 1rem 0.5rem 0rem;
                     font-family: 'Roboto', sans-serif;
-
+                    cursor: pointer;
                     &:nth-child(2) {
                         margin-left: 0;
                     }

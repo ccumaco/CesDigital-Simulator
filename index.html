@@ -81,6 +81,26 @@
                         </div>
                         <div  id='container-forms'>
                             <!-- HTML FORM -->
+                            <select onChange="getTypeOfSite()" class="type-of-site" name="typeOfSite" id="typeOfSite">
+                                <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
+                                <option value="Ecommerce">Ecommerce</option>
+                                <option value="Langind">Langind</option>
+                                <option value="Trivia">Trivia</option>
+                                <option value="Trivia">Otros</option>
+                            </select>
+                            <p class="number-pages">Número de paginas internas</p>
+                                <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
+                            <div class="components">
+                                <p class="title-components">Selecciona uno o varios componentes internos</p>
+                                <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="Videos">
+                                <label class="label-components" for="Videos">Videos</label>
+                                <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="galetyPhotos">
+                                <label class="label-components" for="galetyPhotos">Galeria de fotos</label>
+                                <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="socialNetwork">
+                                <label class="label-components" for="socialNetwork">Redes sociales</label>
+                                <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="contactForm">
+                                <label class="label-components" for="contactForm">Formulario de contacto</label>
+                            </div>
                     </div>
                 </form>
                 <div class="container-cost">
@@ -114,12 +134,23 @@
                             $2.230.000 + IVA
                         </p>
                         <div class="continer-submit">
-                            <button class='want'>¡Lo quiero! <b> > </b> </button>
+                            <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
                         </div>
                     </div>
                     <h6 class='title-observations'>Observaciones</h6>
                     <p class='paragraph-observations'>El valor calculado es un precio mínimo aproximado y puede variar dependiendo de otros factores técnicos como lenguaje de programación, gestores de contenidos u componentes adicionales que se requieran como simuladores, animaciones, tipos de contenidos etc.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-to-pay">
+        <div class="content-modal">
+            <div class="modal-header">
+                <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
+                <h2>Comprobacion de datos</h2>
+            </div>
+            <div id="modal-body">
+                <!-- HTML MODAL -->
             </div>
         </div>
     </div>

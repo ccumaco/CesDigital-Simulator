@@ -78,7 +78,7 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" checked>
+        <input type="checkbox" onChange="getAnalitycs('tag-manager')" id="tag-manager" checked>
         <span class="slider round"></span>
     </label>
     <p class="option-analitycs">Implementación de Google Analytics 
@@ -89,7 +89,7 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" checked>
+        <input type="checkbox" onChange="getAnalitycs('analitycs')" id="analitycs" checked>
         <span class="slider round"></span>
     </label>
     <p class="option-analitycs">Implementación de eventos, objetivos u otras personalizaciones 
@@ -100,7 +100,7 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" checked>
+        <input type="checkbox" onChange="getAnalitycs('events-topics')" id="events-topics" checked>
         <span class="slider round"></span>
     </label>
     <p class="option-analitycs">Tablero en Data Studio con reporte 
@@ -111,7 +111,7 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" checked>
+        <input type="checkbox" onChange="getAnalitycs('data-studio')" id="data-studio" checked>
         <span class="slider round"></span>
     </label>
 </div>
@@ -140,7 +140,7 @@ function showProduct(product) {
     }
 }
 if (window.location.pathname == '/index.html' || '') {
-    showProduct(1)
+    // showProduct(3)
 }
 
 

@@ -11,6 +11,28 @@ body {
   background-image: "/images/fondo-rayas.svg";
 }
 
+.modal-to-pay {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.24);
+  height: 100%;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  z-index: 2;
+}
+
+.modal-to-pay .content-modal {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
 #contenedor-principal {
   max-width: 1366px;
   margin: 0 auto;
@@ -544,6 +566,7 @@ header .menu-mobile {
   border: 1px solid #0092B8;
   margin: 0.5rem 1rem 0.5rem 0rem;
   font-family: 'Roboto', sans-serif;
+  cursor: pointer;
 }
 
 .container-all-site .container .container-form .components .label-components:nth-child(2) {
