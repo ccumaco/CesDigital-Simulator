@@ -16,24 +16,25 @@ function enviar_formulario(){
 
 openMenuMobile(false);
 const formDesign = `
-        <select class="type-of-site" name="typeOfSite" id="typeOfSite">
+        <select onChange="getTypeOfSite()" class="type-of-site" name="typeOfSite" id="typeOfSite">
             <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
             <option value="Ecommerce">Ecommerce</option>
             <option value="Langind">Langind</option>
             <option value="Trivia">Trivia</option>
+            <option value="Trivia">Otros</option>
         </select>
         <p class="number-pages">Número de paginas internas</p>
-        <input class="input-range" type="range" min="0" max="5" value="5" step="1">
+            <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
         <div class="components">
             <p class="title-components">Selecciona uno o varios componentes internos</p>
-            <input class="input-components" type="checkbox" name="Components" id="Videos">
+            <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="Videos">
             <label class="label-components" for="Videos">Videos</label>
-            <input class="input-components" type="checkbox" name="Components" id="Videos2">
-            <label class="label-components" for="Videos2">Galeria de fotos</label>
-            <input class="input-components" type="checkbox" name="Components" id="Videos3">
-            <label class="label-components" for="Videos3">Redes sociales</label>
-            <input class="input-components" type="checkbox" name="Components" id="Videos4">
-            <label class="label-components" for="Videos4">Formulario de contacto</label>
+            <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="galetyPhotos">
+            <label class="label-components" for="galetyPhotos">Galeria de fotos</label>
+            <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="socialNetwork">
+            <label class="label-components" for="socialNetwork">Redes sociales</label>
+            <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="contactForm">
+            <label class="label-components" for="contactForm">Formulario de contacto</label>
         </div>
 `
 const formSeo = `
@@ -53,8 +54,8 @@ const formSeo = `
     <div class="step">
         <p class="title-step">Paso 4</p>
         <p class="paragraph-step">Minimo 6 meses de contrato</p>
-        <input onchange="console.log('pagina')" type="range" class="ticks" min="6" value="6" max="12" step="1" list="ticks">
-        <datalist id="ticks">
+        <input onChange="getMounthsContract()" type="range" id="mounthContract" class="ticks" min="6" value="6" max="12" step="1" list="ticks">
+        <datalist id="ticks" >
             <option>6</option>
             <option>7</option>
             <option>8</option>
@@ -138,4 +139,14 @@ function showProduct(product) {
             break;
     }
 }
-showProduct(3)
+if (window.location.pathname == '/index.html' || '') {
+    showProduct(1)
+}
+
+
+function validateFormContactUs(){
+    let nameInput = document.getElementById('name').value
+    if (nameInput != null || '' && nameInput.lenght >= 5) {
+        
+    }
+}

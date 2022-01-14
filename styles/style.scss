@@ -301,6 +301,9 @@ header{
                 color: $white-color;
                 min-width: 300px;
                 font-family: 'Roboto', sans-serif;
+                option {
+                    color: $black-color;
+                }
             }
 
             .number-pages {
@@ -647,6 +650,10 @@ header{
             left: 0;
             right: 0;
             margin: 0 auto;
+            @include screen("md"){
+                top: -16px;
+                font-size: 40px;
+            }
         }
         .subtitle{
             position: relative;

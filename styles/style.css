@@ -364,6 +364,10 @@ header .menu-mobile {
   font-family: 'Roboto', sans-serif;
 }
 
+.container-all-site .container .container-form .type-of-site option {
+  color: #000;
+}
+
 .container-all-site .container .container-form .number-pages {
   color: #fff;
   font-family: 'Roboto', sans-serif;
@@ -787,6 +791,13 @@ header .menu-mobile {
   left: 0;
   right: 0;
   margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .container-home .titulos .sombra-tit {
+    top: -16px;
+    font-size: 40px;
+  }
 }
 
 .container-home .titulos .subtitle {

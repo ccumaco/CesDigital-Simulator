@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Macgraficas - Simulador</title>
+    <title>Cesdigital - Simulador</title>
     <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
     
 </head>
@@ -51,21 +51,21 @@
                     <h1 class="title-simulator">Simulador de precios</h1>
                         <div class="container-cards">
                             <div class="card" onclick='showProduct(1)'>
-                                <input class="input-style" type="radio" name="service" id="design" checked>
+                                <input class="input-style" onchange="clearObject(1)" type="radio" name="service" id="design" checked>
                                 <label class="label-card" for="design">
                                     <img class="image-card" src="./images/code.png" alt="imagen diseño web">
                                     Diseño de sitios web
                                 </label>
                             </div>
                             <div class="card" onclick='showProduct(2)'>
-                                <input class="input-style" type="radio" name="service" id="seo">
+                                <input class="input-style" onchange="clearObject(2)" type="radio" name="service" id="seo">
                                 <label class="label-card" for="seo">
                                     <img class="image-card" src="./images/seo.png" alt="imagen de seo">
                                     Posicionamiento SEO
                                 </label>
                             </div>
                             <div class="card" onclick='showProduct(3)'>
-                                <input class="input-style" type="radio" name="service" id="analitycs">
+                                <input class="input-style" onchange="clearObject(3)" type="radio" name="service" id="analitycs">
                                 <label class="label-card" for="analitycs">
                                     <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
                                     Analitica web
@@ -95,7 +95,7 @@
                         </ul>
                         <hr>
                         <p class='text-option'>Valor mínimo aproximado</p>
-                        <p class='price'>$2.000.000</p>
+                        <p class='price' id="minimal-price">$2.000.000</p>
                         <p class='text-option'>
                             Otros valores a tener en cuenta
                         </p>
@@ -125,8 +125,9 @@
     </div>
 </body>
 <script src="./index.js"></script>
+<script src="./simulator.js"></script>
 <footer>
-    <p>Copyright © 2021 Maacgraficas S.A.S. Todos los derechos reservados.</p>
+    <p>Copyright © 2021 Cesdigital. Todos los derechos reservados.</p>
 </footer>
 
 </html>
