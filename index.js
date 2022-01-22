@@ -24,7 +24,15 @@ const formDesign = `
             <option value="Trivia">Otros</option>
         </select>
         <p class="number-pages">Número de paginas internas</p>
-            <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
+        <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
+        <datalist id="ticks" >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </datalist>
         <div class="components">
             <p class="title-components">Selecciona uno o varios componentes internos</p>
             <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="Videos">
@@ -54,7 +62,7 @@ const formSeo = `
     <div class="step">
         <p class="title-step">Paso 4</p>
         <p class="paragraph-step">Minimo 6 meses de contrato</p>
-        <input onChange="getMounthsContract()" type="range" id="mounthContract" class="ticks" min="6" value="6" max="12" step="1" list="ticks">
+        <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
         <datalist id="ticks" >
             <option>6</option>
             <option>7</option>

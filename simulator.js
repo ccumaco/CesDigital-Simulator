@@ -101,6 +101,11 @@ for (let i = 0; i < document.querySelectorAll(".input-style").length; i++) {
     }
 }
 
+
+function changeQuoteHtml(service){
+    console.log('inter quote service', service);
+}
+
 function getInterComponent(){
     for (let i = 0; i < interComponents.length; i++) {
         const element = interComponents[i];
