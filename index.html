@@ -81,6 +81,7 @@
                         </div>
                         <div  id='container-forms'>
                             <!-- HTML FORM -->
+                            <p class="number-pages"><strong>Tipo de producto</strong></p>
                             <select onChange="getTypeOfSite()" class="type-of-site" name="typeOfSite" id="typeOfSite">
                                 <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
                                 <option value="Ecommerce">Ecommerce</option>
@@ -114,35 +115,37 @@
                 <div class="container-cost">
                     <div class="contrainer-information">
                         <h4 class='title-cost'>Cotización</h4>
-                        <ul class='list'>
-                            <li class="type-options">- Diseño de sitio web</li>
-                            <li class="type-options">- Sitio informativo con páginas internas</li>
-                            <li class="type-options">- 3 páginas internas</li>
-                            <li class="type-options">- Galería de fotos</li>
-                            <li class="type-options">- Formulario de contácto</li>
-                        </ul>
-                        <hr>
-                        <p class='text-option'>Valor mínimo aproximado</p>
-                        <p class='price' id="minimal-price">$2.000.000</p>
-                        <p class='text-option'>
-                            Otros valores a tener en cuenta
-                        </p>
-                        <div class="value">
-                            <div class="contain-option">
-                                <p class='name'>hosting</p>
-                                <p class='price'>$150.000</p>
+                        <div  id="quote-html">
+                            <ul class='list'>
+                                <li class="type-options">- Diseño de sitio web</li>
+                                <li class="type-options">- Sitio informativo con páginas internas</li>
+                                <li class="type-options">- 3 páginas internas</li>
+                                <li class="type-options">- Galería de fotos</li>
+                                <li class="type-options">- Formulario de contácto</li>
+                            </ul>
+                            <hr>
+                            <p class='text-option'>Valor mínimo aproximado</p>
+                            <p class='price' id="minimal-price">$2.000.000</p>
+                            <p class='text-option'>
+                                Otros valores a tener en cuenta
+                            </p>
+                            <div class="value">
+                                <div class="contain-option">
+                                    <p class='name'>hosting</p>
+                                    <p class='price'>$150.000</p>
+                                </div>
+                                <div class="contain-option">
+                                    <p class='name'>Dominio</p>
+                                    <p class='price'>$80.000</p>
+                                </div>
                             </div>
-                            <div class="contain-option">
-                                <p class='name'>Dominio</p>
-                                <p class='price'>$80.000</p>
+                            <p class='text-option'>valor mínimo aproximado</p>
+                            <p class='price'>
+                                $2.230.000 + IVA
+                            </p>
+                            <div class="continer-submit">
+                                <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
                             </div>
-                        </div>
-                        <p class='text-option'>valor mínimo aproximado</p>
-                        <p class='price'>
-                            $2.230.000 + IVA
-                        </p>
-                        <div class="continer-submit">
-                            <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
                         </div>
                     </div>
                     <h6 class='title-observations'>Observaciones</h6>
@@ -155,10 +158,13 @@
         <div class="content-modal">
             <div class="modal-header">
                 <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
-                <h2>Comprobacion de datos</h2>
-            </div>
-            <div id="modal-body">
-                <!-- HTML MODAL -->
+                <h2>Por último, déjanos tus datos para poder contactarnos contigo</h2>
+                <form action="quote.php" method="post">
+                    <input type="text" name="name" id="name" class="name"  value="nombre" placeholder="Nombre Completo">
+                    <input type="text" name="mail" id="mail" class="email" value="correp@gmail.com"  placeholder="Correo electrónico">
+                    <input type="text" name="phone" id="subject" class="subject" value="4554584684"  placeholder="Celular">
+                    <button type="submit" class="send-form">ENVIAR </button>
+                </form>
             </div>
         </div>
     </div>
