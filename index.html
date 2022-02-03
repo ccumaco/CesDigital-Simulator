@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="styleshe    position: absolute;
+    white-space: nowrap;et" href="./styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cesdigital - Simulador</title>
     <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
-    
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <header>
     <div class="container-header">
@@ -35,6 +36,7 @@
         </ul>
     </div>
 </header>
+
 <body>
     <div class="container-all-site">
         <div class="bread-crumbs">
@@ -47,46 +49,46 @@
                 <a href="index.html" class="comeback"><i class="fas fa-arrow-left"></i> Volver</a>
             </div>
             <div class="container-form">
-                <form action="index.html" method="post" >
+                <form action="index.html" method="post">
                     <h1 class="title-simulator">Simulador de precios</h1>
-                        <div class="container-cards">
-                            <div class="card" onclick='showProduct(1)'>
-                                <input class="input-style" type="radio" name="service" id="design" checked>
-                                <label class="label-card" for="design">
-                                    <img class="image-card" src="./images/code.png" alt="imagen diseño web">
-                                    Diseño de sitios web
-                                </label>
-                            </div>
-                            <div class="card" onclick='showProduct(2)'>
-                                <input class="input-style" type="radio" name="service" id="seo">
-                                <label class="label-card" for="seo">
-                                    <img class="image-card" src="./images/seo.png" alt="imagen de seo">
-                                    Posicionamiento SEO
-                                </label>
-                            </div>
-                            <div class="card" onclick='showProduct(3)'>
-                                <input class="input-style" type="radio" name="service" id="analitycs">
-                                <label class="label-card" for="analitycs">
-                                    <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
-                                    Analitica web
-                                </label>
-                            </div>
-                            <!-- <div class="card" onclick='showProduct(4)'>
+                    <div class="container-cards">
+                        <div class="card" onclick='showProduct(1)'>
+                            <input class="input-style" type="radio" name="service" id="design" checked>
+                            <label class="label-card" for="design">
+                                <img class="image-card" src="./images/code.png" alt="imagen diseño web">
+                                Diseño de sitios web
+                            </label>
+                        </div>
+                        <div class="card" onclick='showProduct(2)'>
+                            <input class="input-style" type="radio" name="service" id="seo">
+                            <label class="label-card" for="seo">
+                                <img class="image-card" src="./images/seo.png" alt="imagen de seo">
+                                Posicionamiento SEO
+                            </label>
+                        </div>
+                        <div class="card" onclick='showProduct(3)'>
+                            <input class="input-style" type="radio" name="service" id="analitycs">
+                            <label class="label-card" for="analitycs">
+                                <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
+                                Analitica web
+                            </label>
+                        </div>
+                        <!-- <div class="card" onclick='showProduct(4)'>
                                 <input class="input-style" type="radio" name="service" id="piece">
                                 <label class="label-card" for="piece">
                                     <img class="image-card" src="./images/computer.png" alt="imagen piezas digitales">
                                     Diseño de piezas digitales
                                 </label>
                             </div> -->
-                        </div>
-                        <div  id='container-forms'>
-                            <!-- HTML FORM -->
+                    </div>
+                    <div id='container-forms'>
+                        <!-- HTML FORM -->
                     </div>
                 </form>
                 <div class="container-cost">
                     <div class="contrainer-information">
                         <h4 class='title-cost'>Cotización</h4>
-                        <div  id="quote-html">
+                        <div id="quote-html">
                             <ul class='list'>
                                 <li class="type-options">- Diseño de sitio web</li>
                                 <li class="type-options">- Sitio informativo con páginas internas</li>
@@ -120,23 +122,25 @@
                         </div>
                     </div>
                     <h6 class='title-observations'>Observaciones</h6>
-                    <p class='paragraph-observations'>El valor calculado es un precio mínimo aproximado y puede variar dependiendo de otros factores técnicos como lenguaje de programación, gestores de contenidos u componentes adicionales que se requieran como simuladores, animaciones, tipos de contenidos etc.</p>
+                    <p class='paragraph-observations'>El valor calculado es un precio mínimo aproximado y puede variar
+                        dependiendo de otros factores técnicos como lenguaje de programación, gestores de contenidos u
+                        componentes adicionales que se requieran como simuladores, animaciones, tipos de contenidos etc.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <div class="modal-to-pay">
         <div class="content-modal">
-            <div class="modal-header">
-                <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
-                <h2>Por último, déjanos tus datos para poder contactarnos contigo</h2>
-                <form action="quote.php" method="post">
-                    <input type="text" name="name" id="name" class="name"  value="nombre" placeholder="Nombre Completo">
-                    <input type="text" name="mail" id="mail" class="email" value="correp@gmail.com"  placeholder="Correo electrónico">
-                    <input type="text" name="phone" id="subject" class="subject" value="4554584684"  placeholder="Celular">
-                    <button type="submit" class="send-form">ENVIAR </button>
-                </form>
-            </div>
+            <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
+            <h2 class="title-modal">Por último, déjanos tus datos para poder contactarnos contigo</h2>
+            <form class="form-pay" action="quote.php" method="post">
+                <input type="text" name="name" id="name" class="input-style" placeholder="Nombre Completo">
+                <input type="text" name="mail" id="mail" class="input-style" placeholder="Correo electrónico">
+                <input type="text" name="phone" id="subject" class="input-style" placeholder="Celular">
+                <input type="text" name="object-profile" hidden id="object-profile">
+                <button type="submit" class="send-form">Enviar </button>
+            </form>
         </div>
     </div>
 </body>

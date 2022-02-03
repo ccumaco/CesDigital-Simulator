@@ -51,10 +51,72 @@ body{
     top: 0;
     z-index: 2;
     .content-modal{
+        max-width: 520px;
         background-color: $white-color;
-        padding: 1rem;
+        padding: 2rem;
         border-radius: 10px;
-        .modal-header{
+        position: relative;
+        @include screen("md") {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .close-modal-to-pay{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            color: $grey-color;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+        .title-modal{
+            font-size: 1.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #707070;
+            text-align: center;
+            margin-bottom: 1rem;   
+            @include screen("md") {
+                font-size: 1rem;
+            }
+        }
+        .form-pay{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            .input-style{
+                margin: 0.5rem 0;
+                padding: .8rem;
+                border-radius: 5px;
+                font-family: 'Roboto';
+                color: #707070;
+                border: 1px solid #081C39;
+                @include screen("md") {
+                    padding: .5rem;
+                }
+                &::placeholder{
+                    color: #707070;
+                }
+                &:focus-visible{
+                    border: 1px solid #0092B8;
+                }
+            }
+            .send-form {
+                background-color: $secondary-color;
+                color: $white-color;
+                max-width: 220px;
+                display: block;
+                margin: 0 auto;
+                border-radius: 8px;
+                border: 0;
+                font-size: 24px;
+                padding: 1rem 4rem;
+                text-align: center;
+                margin-top: 1rem;
+                @include screen("md") {
+                    padding: .5rem 2rem;
+                }
+            }
         }
     }
 }
@@ -248,6 +310,7 @@ header{
                     grid-gap: 1rem;
                     cursor: pointer;
                     @include screen("md") {
+                        display: flex;
                         width: 100%;
                         margin: 1rem 0;
                     }
@@ -291,11 +354,20 @@ header{
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-
+                        @include screen("md") {
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                        }
                         .image-card {
                             margin-bottom: 1rem;
+                            @include screen("md") {
+                                margin-bottom: 0rem;
+                                margin-right: 2rem;
+                                max-width: 50px;
+                            }
                         }
-
+                        
                         &::before {
                             content: '';
                             display: block;
@@ -307,11 +379,15 @@ header{
                             top: 10px;
                             right: 10px;
                             z-index: 1;
+                            @include screen("md") {
+                                top: 30px;
+                                right: 20px;
+                            }
                         }
                     }
                 }
             }
-
+            
             .type-of-site {
                 margin: 1rem 0;
                 border-radius: 5px;
@@ -338,25 +414,39 @@ header{
             }
             .container-steps-analitycs{
                 margin-top: 1rem;
+                @include screen("md") {
+                    margin-bottom: 1rem;
+                }
                 .option-analitycs{
                     color: $white-color;
                     font-family: 'Roboto';
                     font-size: 0.9rem;
                     margin-bottom: 0.4rem;
+                    position: relative;
+                    width: fit-content;
+                    @include screen("md") {
+                        font-size: 1rem;
+                    }
                     .tooltip{
                         position: relative;
                         .question{
                             color: $secondary-color;
-                            position: relative;
+                            position: absolute;
+                            right: -20px;
+                            top: 2px;
                             .text-tooltip{
+                                display: none;
                                 visibility: hidden;
                                 opacity: 0;
                                 transition: all 1s;
                             }
                             &:hover{
                                 .text-tooltip{
+                                    display: inline;
                                     visibility: visible;
                                     opacity: 1;
+                                    position: absolute;
+                                    white-space: nowrap;
                                 }
                             }
                         }
@@ -367,6 +457,9 @@ header{
                     display: inline-block;
                     width: 60px;
                     height: 34px;
+                    @include screen("md") {
+                        margin-bottom: 1rem;
+                    }
                     input { 
                         opacity: 0;
                         width: 0;
@@ -421,17 +514,26 @@ header{
                 margin-top: 1rem;
                 display: flex;
                 justify-content: space-between;
+                @include screen("md") {
+                    flex-direction: column;
+                }
                 .step{
                     width: calc(100% - 10px);
                     margin-left: 0;
                     padding-right: 20px;
                     position: relative;
+                    @include screen("md") {
+                        margin-top: 10px;
+                    }
                     &::before{
                         content: '>';
                         top: 50%;
                         right: 10px;
                         position: absolute;
                         color: #FFC400;
+                        @include screen("md") {
+                            content: none;
+                        }
                     }
                     .title-step{
                         color: #FFC400;
@@ -509,6 +611,7 @@ header{
                     padding: 2rem;
                     @include screen("md") {
                         flex-basis: 100%;
+                        max-width: 350px;
                         margin: 0 auto;
                     }
                     .title-cost {
@@ -604,7 +707,8 @@ header{
         max-width: $max-width;
         margin: 0 auto;
         @include screen("md"){
-            flex-direction: column;
+            flex-direction: column-reverse;
+            padding: 2rem 0;
         }
         .container-text{
             width: 50%;
@@ -617,6 +721,7 @@ header{
             .title-home{
                 font-size: 40px;
                 color: $white-color;
+
             }
             .paragraph-home{
                 color: $white-color;
@@ -650,11 +755,19 @@ header{
         font-size: 3.7rem;
         display: block;
         font-weight: 500;
+        @include screen("md"){
+            font-size: 32px;
+            font-weight: 100;
+        }
     }
     .titulo2{
         font-size: 4.7rem;
         font-weight: 100;
         display: block;
+        @include screen("md"){
+            font-size: 40px;
+            font-weight: bold;
+        }
     }
     .titulos{
         position: relative;
@@ -679,6 +792,10 @@ header{
             position: relative;
             margin-bottom: 80px;
             margin-top: 80px;
+            @include screen("md"){
+                margin-top: 60px;
+                margin-bottom: 30px;
+            }
         }
     }
     .subtitle{
@@ -700,7 +817,7 @@ header{
         @include screen("md") {
             flex-direction: column;
             align-items: center;
-            padding: 1rem;
+            padding: 1rem 0;
         }
         .card {
             text-align: center;
@@ -728,8 +845,8 @@ header{
             }
             @include screen("md") {
                 margin: 1rem 0;
-                width: 98%;
-                max-width: 300px;
+                width: 100%;
+                max-width: 350px;
             }
             .input-style {
                 position: absolute;
@@ -788,7 +905,7 @@ header{
         max-width: 1000px;
         margin: 0 auto;
         @include screen("md") {
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
         }
         .atencion-client{
@@ -798,12 +915,12 @@ header{
                 font-family: 'Roboto', sans-serif;
                 color: $white-color !important;
                 @include screen("md") {
-                    text-align: center;
+                    padding-left: 1.5rem;
                 }
             }
             ul{
                 @include screen("md") {
-                    text-align: center;
+                    padding-left: 1.5rem;
                 }
                 li.rs{
                     font-family: 'Roboto', sans-serif;
@@ -902,8 +1019,9 @@ header{
                         padding: 1rem 2rem;
                         transition: all 0.5s;
                         @include screen("md") {
-                            width: 100%;
-                            padding: 0.5rem 0;
+                            width: fit-content;
+                            padding: 1rem 4rem;
+                            margin-bottom: 2rem;
                         }
                         &:hover{
                             background-color: #748090;

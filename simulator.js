@@ -4,6 +4,7 @@ let objectCotization = {
     internalPages: 1,
     typeOfSite: 'ecommerce',
 }
+
 function clearObject (service) {
     switch (service) {
         case 1:
@@ -34,19 +35,69 @@ function clearObject (service) {
     console.log('objectCotization', objectCotization);
 }
 
-function getAnalitycs(service){
+let costTagManager = 100000
+
+
+function showProduct(product) {
+    switch (product) {
+        case 1:
+            document.querySelector("#container-forms").innerHTML = formDesign;
+            document.querySelector("#quote-html").innerHTML = 'quoteAnalytics';
+            clearObject(1)
+            break;
+        case 2:
+            document.querySelector("#container-forms").innerHTML = formSeo;
+            document.querySelector("#quote-html").innerHTML = quoteFormSeo;
+            clearObject(2)
+            break;
+        case 3:
+            document.querySelector("#container-forms").innerHTML = formAnalytics;
+            document.querySelector("#quote-html").innerHTML = quoteAnalytics;
+            clearObject(3)
+            break;
+        case 4:
+            document.querySelector("#container-forms").innerHTML = formPuzzleDigital;
+            document.querySelector("#quote-html").innerHTML = quoteAnalytics;
+            clearObject(4)
+            break;
+        default:
+            break;
+    }
+}
+
+function getAnalytics(service){
     switch (service) {
         case 'tag-manager':
             objectCotization.gtm = !objectCotization.gtm
+            if (objectCotization.gtm) {
+                document.querySelector('#list-gtm').style.display = 'block'
+            } else {
+                document.querySelector('#list-gtm').style.display = 'none'
+            }
             break;
         case 'analytics':
             objectCotization.analytics = !objectCotization.analytics
+            if (objectCotization.analytics) {
+                document.querySelector('#list-analitycs').style.display = 'block'
+            } else {
+                document.querySelector('#list-analitycs').style.display = 'none'
+            }
             break;
         case 'events-topics':
             objectCotization.events = !objectCotization.events
+            if (objectCotization.events) {
+                document.querySelector('#list-events').style.display = 'block'
+            } else {
+                document.querySelector('#list-events').style.display = 'none'
+            }
             break;
         case 'data-studio':
             objectCotization.dataStudio = !objectCotization.dataStudio
+            if (objectCotization.dataStudio) {
+                document.querySelector('#list-reports').style.display = 'block'
+            } else {
+                document.querySelector('#list-reports').style.display = 'none'
+            }
             break;
         default:
             break;
@@ -55,6 +106,8 @@ function getAnalitycs(service){
 }
 
 function getMounthsContract(){
+    console.log(objectCotization.mountsContract);
+    objectCotization.mountsContract = document.querySelector('#mounts-seo').innerHTML = `-${document.querySelector('#mounthContract').value  } Meses de posicionamiento SEO`
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
     console.log('objectCotization', objectCotization);
 }
@@ -81,10 +134,10 @@ function getTypeOfSite(){
 }
 
 
-let modalToPay = true
+let modalToPay = false
 function openModalToPay(){
-    console.log(modalToPay);
     modalToPay = !modalToPay
+    document.querySelector('#object-profile').value = JSON.stringify(objectCotization)
     if (modalToPay) {
         document.querySelector('.modal-to-pay').style.display = 'none'
     } else{
@@ -160,7 +213,7 @@ const formSeo = `
     </div>
 </div>
 `
-const formAnalitycs = `
+const formAnalytics = `
 <div class="container-steps-analitycs">
     <p class="option-analitycs">Implementación de Google Tag manager 
     <span class="tooltip">
@@ -170,10 +223,10 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" onChange="getAnalitycs('tag-manager')" id="tag-manager" checked>
+        <input type="checkbox" onChange="getAnalytics('tag-manager')" id="tag-manager" checked>
         <span class="slider round"></span>
     </label>
-    <p class="option-analitycs">Implementación de Google Analytics 
+    <p class="option-analitycs">Implementación de Google analytics 
     <span class="tooltip">
         <i class="fas fa-question-circle question">
         <span class="text-tooltip">texto tooltip</span>
@@ -181,7 +234,7 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" onChange="getAnalitycs('analitycs')" id="analitycs" checked>
+        <input type="checkbox" onChange="getAnalytics('analytics')" id="analytics" checked>
         <span class="slider round"></span>
     </label>
     <p class="option-analitycs">Implementación de eventos, objetivos u otras personalizaciones 
@@ -192,7 +245,7 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" onChange="getAnalitycs('events-topics')" id="events-topics" checked>
+        <input type="checkbox" onChange="getAnalytics('events-topics')" id="events-topics" checked>
         <span class="slider round"></span>
     </label>
     <p class="option-analitycs">Tablero en Data Studio con reporte 
@@ -203,7 +256,7 @@ const formAnalitycs = `
     </span>
     </p>
     <label class="switch">
-        <input type="checkbox" onChange="getAnalitycs('data-studio')" id="data-studio" checked>
+        <input type="checkbox" onChange="getAnalytics('data-studio')" id="data-studio" checked>
         <span class="slider round"></span>
     </label>
 </div>
@@ -211,49 +264,32 @@ const formAnalitycs = `
 const formPuzzleDigital = `
     <h1>Contenedorrr Puzzle Digital</h1>
 `
-const quoteAnalitycs = `
+
+
+let quoteFormSeo = `
     <ul class='list'>
-        <li class="type-options">- Google Tag Manager</li>
-        <li class="type-options">- Google Analytics</li>
-        <li class="type-options">- Eventos en Analytics</li>
-        <li class="type-options">- Reporte en Data Studio</li>
+        <li class="type-options" id="mounts-seo">-6 Meses de posicionamiento SEO</li>
+    </ul>
+    <hr />
+    <div class="continer-submit">
+    <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
+</div>
+    `
+
+const quoteAnalytics = `
+    <ul class='list'>
+        <li class="type-options" id="list-gtm">- Google Tag Manager</li>
+        <li class="type-options" id="list-analitycs">- Google analytics</li>
+        <li class="type-options" id="list-events">- Eventos en analytics</li>
+        <li class="type-options" id="list-reports">- Reporte en Data Studio</li>
     </ul>
     <hr />
     <p class='text-option'><b>Total</b></p>
     <p class='price'><b>$2.000.000 + iva </b></p>
+    <div class="continer-submit">
+        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
+    </div>
 `
-let costTagManager = 100000
-
-
-function showProduct(product) {
-    switch (product) {
-        case 1:
-            document.querySelector("#container-forms").innerHTML = formDesign;
-            document.querySelector("#quote-html").innerHTML = 'quoteAnalitycs';
-            clearObject(1)
-            break;
-        case 2:
-            document.querySelector("#container-forms").innerHTML = formSeo;
-            document.querySelector("#quote-html").innerHTML = `formSeo`;
-            clearObject(2)
-            break;
-        case 3:
-            document.querySelector("#container-forms").innerHTML = formAnalitycs;
-            document.querySelector("#quote-html").innerHTML = quoteAnalitycs;
-            clearObject(3)
-            break;
-        case 4:
-            document.querySelector("#container-forms").innerHTML = formPuzzleDigital;
-            document.querySelector("#quote-html").innerHTML = `formPuzzleDigital`;
-            clearObject(4)
-            break;
-        default:
-            break;
-    }
-}
-
-
-
 
 showProduct(1)
 
