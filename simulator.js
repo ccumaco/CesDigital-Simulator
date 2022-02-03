@@ -42,7 +42,7 @@ function showProduct(product) {
     switch (product) {
         case 1:
             document.querySelector("#container-forms").innerHTML = formDesign;
-            document.querySelector("#quote-html").innerHTML = 'quoteAnalytics';
+            document.querySelector("#quote-html").innerHTML = quoteFormDesign;
             clearObject(1)
             break;
         case 2:
@@ -105,9 +105,24 @@ function getAnalytics(service){
     console.log('objectCotization', objectCotization);
 }
 
+function formatNumber (n) {
+	n = String(n).replace(/\D/g, "");
+  return n === '' ? n : Number(n).toLocaleString();
+}
 function getMounthsContract(){
-    console.log(objectCotization.mountsContract);
+    let costSeoMount = 800000
+    let oneMountMore = 100000
+    if (document.querySelector('#mounthContract').value > 6) {
+        costMounth = costSeoMount + (oneMountMore * (document.querySelector('#mounthContract').value - 6))
+    }
     objectCotization.mountsContract = document.querySelector('#mounts-seo').innerHTML = `-${document.querySelector('#mounthContract').value  } Meses de posicionamiento SEO`
+    objectCotization.mountsContract = document.querySelector('#container-cost-seo').innerHTML = 
+    `
+    <div id="container-cost-seo">
+        <p class='text-option' >Valor por ${document.querySelector('#mounthContract').value  } meses</p>
+        <p class='price'><b>$${formatNumber(costSeoMount)} + iva </b></p>
+    </div>
+    `
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
     console.log('objectCotization', objectCotization);
 }
@@ -265,15 +280,51 @@ const formPuzzleDigital = `
     <h1>Contenedorrr Puzzle Digital</h1>
 `
 
+let quoteFormDesign = `
+    <ul class='list'>
+        <li class="type-options">- Diseño de sitio web</li>
+        <li class="type-options">- Sitio informativo con páginas internas</li>
+        <li class="type-options">- 3 páginas internas</li>
+        <li class="type-options">- Galería de fotos</li>
+        <li class="type-options">- Formulario de contácto</li>
+    </ul>
+    <hr>
+    <p class='text-option'>Valor mínimo aproximado</p>
+    <p class='price' id="minimal-price">$2.000.000</p>
+    <p class='text-option'>
+        Otros valores a tener en cuenta
+    </p>
+    <div class="value">
+        <div class="contain-option">
+            <p class='name'>hosting</p>
+            <p class='price'>$150.000</p>
+        </div>
+        <div class="contain-option">
+            <p class='name'>Dominio</p>
+            <p class='price'>$80.000</p>
+        </div>
+    </div>
+    <p class='text-option'>valor mínimo aproximado</p>
+    <p class='price'>
+        $2.230.000 + IVA
+    </p>
+    <div class="continer-submit">
+        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
+    </div>
+`
 
 let quoteFormSeo = `
     <ul class='list'>
         <li class="type-options" id="mounts-seo">-6 Meses de posicionamiento SEO</li>
     </ul>
     <hr />
+    <div id="container-cost-seo">
+        <p class='text-option' >Valor por 6 meses</p>
+        <p class='price'><b>$800.000 + iva </b></p>
+    </div>
     <div class="continer-submit">
-    <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
-</div>
+        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
+    </div>
     `
 
 const quoteAnalytics = `
