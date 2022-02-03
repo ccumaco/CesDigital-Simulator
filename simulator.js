@@ -1,38 +1,16 @@
 
-let inputInternalPages = document.querySelector('#internal-pages')
-let typeOfSite = document.querySelector('#typeOfSite')
-let interComponents = document.querySelectorAll('.input-components')
-
 let objectCotization = {
     components: [],
-    internalPages: inputInternalPages.value,
-    typeOfSite: typeOfSite.value,
+    internalPages: 1,
+    typeOfSite: 'ecommerce',
 }
-
-
-function request()
-{
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() 
-    {
-        if (xhttp.readyState == 4 && xhttp.status == 200) 
-        {
-            var response = xhttp.responseText;
-            console.log(response);
-        }
-    };
-    xhttp.open("POST", "quote.php", true);
-    xhttp.send(objectCotization);
-    request(JSON.stringify(objectCotization));
-}
-
 function clearObject (service) {
     switch (service) {
         case 1:
             objectCotization = {
                 components: [],
-                typeOfSite: typeOfSite.value,
-                internalPages: inputInternalPages.value
+                typeOfSite: 'ecommerce',
+                internalPages: 1
             }
             break;
         case 2:
@@ -73,22 +51,33 @@ function getAnalitycs(service){
         default:
             break;
     }
-    console.log(objectCotization, 'objectCotization');
+    console.log('objectCotization', objectCotization);
 }
 
 function getMounthsContract(){
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
-    console.log(objectCotization, 'objectCotization');
+    console.log('objectCotization', objectCotization);
 }
 
+function getInterComponent(){
+    for (let i = 0; i < document.querySelectorAll('.input-components').length; i++) {
+        const element = document.querySelectorAll('.input-components')[i];
+        if (element.checked && !objectCotization.components.includes(element.id)) {
+            objectCotization.components.push(element.id)
+        } else if (!element.checked && objectCotization.components.includes(element.id)) {
+            objectCotization.components.splice(objectCotization.components.indexOf(element.id), 1)
+        }
+    }
+    console.log('objectCotization', objectCotization);
+}
 
 function getInternalPages(){
-    objectCotization.internalPages = inputInternalPages.value
-    console.log(objectCotization, 'objectCotization');
+    objectCotization.internalPages = document.querySelector('#internal-pages').value
+    console.log('objectCotization', objectCotization);
 }
 function getTypeOfSite(){
-    objectCotization.typeOfSite = typeOfSite.value
-    console.log(objectCotization, 'objectCotization');
+    objectCotization.typeOfSite = document.querySelector('#typeOfSite').value
+    console.log('objectCotization', objectCotization);
 }
 
 
@@ -158,7 +147,7 @@ const formSeo = `
     <div class="step">
         <p class="title-step">Paso 4</p>
         <p class="paragraph-step">Minimo 6 meses de contrato</p>
-        <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
+        <input onchange="getMounthsContract()" id="mounthContract" type="range" class="input-range" min="6" value="6" max="12" step="1" list="ticks">
         <datalist id="ticks" >
             <option>6</option>
             <option>7</option>
@@ -241,18 +230,22 @@ function showProduct(product) {
         case 1:
             document.querySelector("#container-forms").innerHTML = formDesign;
             document.querySelector("#quote-html").innerHTML = 'quoteAnalitycs';
+            clearObject(1)
             break;
         case 2:
             document.querySelector("#container-forms").innerHTML = formSeo;
             document.querySelector("#quote-html").innerHTML = `formSeo`;
+            clearObject(2)
             break;
         case 3:
             document.querySelector("#container-forms").innerHTML = formAnalitycs;
             document.querySelector("#quote-html").innerHTML = quoteAnalitycs;
+            clearObject(3)
             break;
         case 4:
             document.querySelector("#container-forms").innerHTML = formPuzzleDigital;
             document.querySelector("#quote-html").innerHTML = `formPuzzleDigital`;
+            clearObject(4)
             break;
         default:
             break;
@@ -260,16 +253,8 @@ function showProduct(product) {
 }
 
 
-function getInterComponent(){
-    for (let i = 0; i < interComponents.length; i++) {
-        const element = interComponents[i];
-        if (element.checked && !objectCotization.components.includes(element.id)) {
-            objectCotization.components.push(element.id)
-        } else if (!element.checked && objectCotization.components.includes(element.id)) {
-            objectCotization.components.splice(objectCotization.components.indexOf(element.id), 1)
-        }
-    }
-    console.log(objectCotization, 'objectCotization');
-}
 
-console.log(objectCotization);
+
+showProduct(1)
+
+console.log('objectCotization', objectCotization);
