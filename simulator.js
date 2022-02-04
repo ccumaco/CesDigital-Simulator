@@ -112,17 +112,7 @@ function formatNumber (n) {
 function getMounthsContract(){
     let costSeoMount = 800000
     let oneMountMore = 100000
-    if (document.querySelector('#mounthContract').value > 6) {
-        costMounth = costSeoMount + (oneMountMore * (document.querySelector('#mounthContract').value - 6))
-    }
-    objectCotization.mountsContract = document.querySelector('#mounts-seo').innerHTML = `-${document.querySelector('#mounthContract').value  } Meses de posicionamiento SEO`
-    objectCotization.mountsContract = document.querySelector('#container-cost-seo').innerHTML = 
-    `
-    <div id="container-cost-seo">
-        <p class='text-option' >Valor por ${document.querySelector('#mounthContract').value  } meses</p>
-        <p class='price'><b>$${formatNumber(costSeoMount)} + iva </b></p>
-    </div>
-    `
+    textPriceSeo.notify(`El precio de tu página web es de ${formatNumber(costSeoMount)} pesos por mes.`)
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
     console.log('objectCotization', objectCotization);
 }
