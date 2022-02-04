@@ -43,6 +43,7 @@ body {
 }
 
 .modal-to-pay .content-modal .close-modal-to-pay {
+  cursor: pointer;
   position: absolute;
   top: 15px;
   right: 15px;

@@ -112,8 +112,12 @@ function formatNumber (n) {
 function getMounthsContract(){
     let costSeoMount = 800000
     let oneMountMore = 100000
-    textPriceSeo.notify(`El precio de tu página web es de ${formatNumber(costSeoMount)} pesos por mes.`)
+    if (document.querySelector('#mounthContract').value > 6) {
+        costSeoMount = costSeoMount + ((document.querySelector('#mounthContract').value - 6) * oneMountMore)
+    }
+    textPriceSeo.notify(`${formatNumber(costSeoMount)} + IVA`)
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
+    textListSeo.notify(`${document.querySelector('#mounthContract').value} Meses de posicionamiento SEO`)
     console.log('objectCotization', objectCotization);
 }
 
@@ -143,7 +147,7 @@ let modalToPay = false
 function openModalToPay(){
     modalToPay = !modalToPay
     document.querySelector('#object-profile').value = JSON.stringify(objectCotization)
-    if (modalToPay) {
+    if (!modalToPay) {
         document.querySelector('.modal-to-pay').style.display = 'none'
     } else{
         document.querySelector('.modal-to-pay').style.display = 'flex'
@@ -308,10 +312,8 @@ let quoteFormSeo = `
         <li class="type-options" id="mounts-seo">-6 Meses de posicionamiento SEO</li>
     </ul>
     <hr />
-    <div id="container-cost-seo">
-        <p class='text-option' >Valor por 6 meses</p>
-        <p class='price'><b>$800.000 + iva </b></p>
-    </div>
+    <p class='text-option' id="value-from-mounth">Total</p>
+    <p class='price' id="price-seo"><b>$800.000 + iva </b></p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
     </div>
@@ -331,6 +333,58 @@ const quoteAnalytics = `
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
     </div>
 `
+
+
+class Subject {
+    constructor () {
+        this.observers = []
+    }
+
+    subscribe (observer) {
+        this.observers.push(observer)
+    }
+
+    unsbscribe (observer) {
+        this.observers = this.observers.filter(obs => obs !== observer)
+    }
+
+    notify (model) {
+        this.observers.forEach(observer => observer.notify(model))
+    }
+}
+
+
+class TextObject extends Subject {
+    constructor(){
+        super()
+        this.text = ''
+    }
+
+    notify (text) {
+        this.text = text
+        super.notify(this)
+        console.log(this, 'esto es this');
+    }
+}
+
+class ListSeo {
+    notify(subject){
+        document.querySelector('#mounts-seo').innerHTML = subject.text
+    }
+}
+class PriceSeo {
+    notify(subject){
+        document.querySelector('#price-seo').innerHTML = subject.text
+    }
+}
+
+var textPriceSeo = new TextObject()
+var textListSeo = new TextObject()
+let listSeo  = new ListSeo()
+let priceSeo  = new PriceSeo()
+textListSeo.subscribe(listSeo)
+textPriceSeo.subscribe(priceSeo)
+
 
 showProduct(1)
 
