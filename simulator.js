@@ -32,7 +32,7 @@ function clearObject (service) {
             break;
     }
 
-    console.log('objectCotization', objectCotization);
+    
 }
 
 let costTagManager = 100000
@@ -70,39 +70,47 @@ function getAnalytics(service){
         case 'tag-manager':
             objectCotization.gtm = !objectCotization.gtm
             if (objectCotization.gtm) {
-                document.querySelector('#list-gtm').style.display = 'block'
+                totalPriceWeb += priceGtm
+                textListGtml.notify(`- Google Tag Manager`)
             } else {
-                document.querySelector('#list-gtm').style.display = 'none'
+                totalPriceWeb -= priceGtm
+                textListGtml.notify(``)
             }
             break;
         case 'analytics':
             objectCotization.analytics = !objectCotization.analytics
             if (objectCotization.analytics) {
-                document.querySelector('#list-analitycs').style.display = 'block'
+                totalPriceWeb += priceAnalitycs
+                textListAnalitycs.notify(`- Google analytics`)
             } else {
-                document.querySelector('#list-analitycs').style.display = 'none'
+                totalPriceWeb -= priceAnalitycs
+                textListAnalitycs.notify(``)
             }
             break;
         case 'events-topics':
             objectCotization.events = !objectCotization.events
             if (objectCotization.events) {
-                document.querySelector('#list-events').style.display = 'block'
+                totalPriceWeb += priceEvents
+                textListEvents.notify(`- Eventos en analytics`)
             } else {
-                document.querySelector('#list-events').style.display = 'none'
+                totalPriceWeb -= priceEvents
+                textListEvents.notify(``)
             }
             break;
         case 'data-studio':
             objectCotization.dataStudio = !objectCotization.dataStudio
             if (objectCotization.dataStudio) {
-                document.querySelector('#list-reports').style.display = 'block'
+                totalPriceWeb += priceDataStudio
+                textListDataEstudio.notify(`- Reporte en Data Studio`)
             } else {
-                document.querySelector('#list-reports').style.display = 'none'
+                totalPriceWeb -= priceDataStudio
+                textListDataEstudio.notify(``)
             }
             break;
         default:
             break;
     }
-    console.log('objectCotization', objectCotization);
+    
 }
 
 function formatNumber (n) {
@@ -118,7 +126,7 @@ function getMounthsContract(){
     textPriceSeo.notify(`${formatNumber(costSeoMount)} + IVA`)
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
     textListSeo.notify(`${document.querySelector('#mounthContract').value} Meses de posicionamiento SEO`)
-    console.log('objectCotization', objectCotization);
+    
 }
 
 function getInterComponent(){
@@ -130,16 +138,16 @@ function getInterComponent(){
             objectCotization.components.splice(objectCotization.components.indexOf(element.id), 1)
         }
     }
-    console.log('objectCotization', objectCotization);
+    
 }
 
 function getInternalPages(){
     objectCotization.internalPages = document.querySelector('#internal-pages').value
-    console.log('objectCotization', objectCotization);
+    
 }
 function getTypeOfSite(){
     objectCotization.typeOfSite = document.querySelector('#typeOfSite').value
-    console.log('objectCotization', objectCotization);
+    
 }
 
 
@@ -165,10 +173,10 @@ const formDesign = `
         <p><strong>Tipo de producto</strong></p>
         <select onChange="getTypeOfSite()" class="type-of-site" name="typeOfSite" id="typeOfSite">
             <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
-            <option value="Ecommerce">Ecommerce</option>
-            <option value="Langind">Langind</option>
-            <option value="Trivia">Trivia</option>
-            <option value="Trivia">Otros</option>
+            <option value="Ecommerce">Landing page (Página de aterrizaje)</option>
+            <option value="Langind">Sitio informativo con páginas internas</option>
+            <option value="Trivia">Sitio informativo con pasarela de pagos Ecommerce</option>
+            <option value="Trivia">Ecommerce</option>
         </select>
         <p class="number-pages">Número de paginas internas</p>
         <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
@@ -328,7 +336,7 @@ const quoteAnalytics = `
     </ul>
     <hr />
     <p class='text-option'><b>Total</b></p>
-    <p class='price'><b>$2.000.000 + iva </b></p>
+    <p class='price'><b id="price-analitycs">$1'000.000 + iva </b></p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
     </div>
@@ -367,9 +375,34 @@ class TextObject extends Subject {
     }
 }
 
+class ListGtm {
+    notify(subject){
+        document.querySelector('#list-gtm').innerHTML = subject.text
+    }
+}
+class ListEvent {
+    notify(subject){
+        document.querySelector('#list-events').innerHTML = subject.text
+    }
+}
+class ListDataEstudio {
+    notify(subject){
+        document.querySelector('#list-reports').innerHTML = subject.text
+    }
+}
+class ListAnalitycs {
+    notify(subject){
+        document.querySelector('#list-analitycs').innerHTML = subject.text
+    }
+}
 class ListSeo {
     notify(subject){
         document.querySelector('#mounts-seo').innerHTML = subject.text
+    }
+}
+class TotalPriceWebHtml {
+    notify(){
+        document.querySelector('#price-analitycs').innerHTML = `$${totalPriceWeb} + iva`
     }
 }
 class PriceSeo {
@@ -378,14 +411,45 @@ class PriceSeo {
     }
 }
 
-var textPriceSeo = new TextObject()
-var textListSeo = new TextObject()
+//objects change HTML in option Anatilitycs
+let priceGtm = 2
+let priceAnalitycs = 5
+let priceEvents = 45
+let priceDataStudio = 10000
+let totalPriceWeb = priceGtm + priceAnalitycs + priceEvents + priceDataStudio
+
+
+let textListGtml = new TextObject()
+let textListEvents = new TextObject()
+let textListAnalitycs = new TextObject()
+let textListDataEstudio = new TextObject()
+
+let listAnalitycs  = new ListAnalitycs()
+let listDataEstudio  = new ListDataEstudio()
+let listEvent  = new ListEvent()
+let listGtm  = new ListGtm()
+let totalPriceWebHtml = new TotalPriceWebHtml()
+textListDataEstudio.subscribe(listDataEstudio)
+textListDataEstudio.subscribe(totalPriceWebHtml)
+textListEvents.subscribe(listEvent)
+textListEvents.subscribe(totalPriceWebHtml)
+textListAnalitycs.subscribe(listAnalitycs)
+textListAnalitycs.subscribe(totalPriceWebHtml)
+textListGtml.subscribe(listGtm)
+textListGtml.subscribe(totalPriceWebHtml)
+
+
+//objects change HTML in option SEO
+let textPriceSeo = new TextObject()
+let textListSeo = new TextObject()
 let listSeo  = new ListSeo()
 let priceSeo  = new PriceSeo()
 textListSeo.subscribe(listSeo)
 textPriceSeo.subscribe(priceSeo)
 
 
+
+
+
 showProduct(1)
 
-console.log('objectCotization', objectCotization);
