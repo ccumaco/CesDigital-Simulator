@@ -390,7 +390,7 @@ header{
             }
             
             .type-of-site {
-                margin: 1rem 0;
+                margin: 1rem 0 0;
                 border-radius: 5px;
                 background-color: transparent;
                 border: 1px solid $white-color;
@@ -406,6 +406,7 @@ header{
             .number-pages {
                 color: $white-color;
                 font-family: 'Roboto', sans-serif;
+                margin-top: 1rem;
             }
 
             .input-range {

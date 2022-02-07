@@ -512,7 +512,7 @@ header .menu-mobile {
 }
 
 .container-all-site .container .container-form .type-of-site {
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   border-radius: 5px;
   background-color: transparent;
   border: 1px solid #fff;
@@ -529,6 +529,7 @@ header .menu-mobile {
 .container-all-site .container .container-form .number-pages {
   color: #fff;
   font-family: 'Roboto', sans-serif;
+  margin-top: 1rem;
 }
 
 .container-all-site .container .container-form .input-range {

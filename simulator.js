@@ -176,7 +176,7 @@ for (let i = 0; i < document.querySelectorAll(".input-style").length; i++) {
 }
 
 const formDesign = `
-        <p><strong>Tipo de producto</strong></p>
+        <p class="number-pages"><strong>Tipo de producto</strong></p>
         <select onChange="getTypeOfSite()" class="type-of-site" name="typeOfSite" id="typeOfSite">
             <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
             <option value="InformativeSite">Sitio informativo con páginas internas</option>
