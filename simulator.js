@@ -147,7 +147,16 @@ function getInternalPages(){
 }
 function getTypeOfSite(){
     objectCotization.typeOfSite = document.querySelector('#typeOfSite').value
-    
+    if (document.querySelector('#typeOfSite').value == 'Landing') {
+        document.querySelector('#internal-pages').setAttribute('style', 'display: none')
+        document.getElementsByClassName('number-pages')[0].setAttribute('style', 'display: none')
+        console.log('entrooo');
+    } else {
+        console.log('no entrooo');
+        document.querySelector('#internal-pages').innerHTML = `
+            <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
+        `
+    }
 }
 
 
@@ -173,10 +182,10 @@ const formDesign = `
         <p><strong>Tipo de producto</strong></p>
         <select onChange="getTypeOfSite()" class="type-of-site" name="typeOfSite" id="typeOfSite">
             <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
-            <option value="Ecommerce">Landing page (Página de aterrizaje)</option>
-            <option value="Langind">Sitio informativo con páginas internas</option>
-            <option value="Trivia">Sitio informativo con pasarela de pagos Ecommerce</option>
-            <option value="Trivia">Ecommerce</option>
+            <option value="InformativeSite">Sitio informativo con páginas internas</option>
+            <option value="Landing">Landing page (Página de aterrizaje)</option>
+            <option value="InformativeSitePayment">Sitio informativo con pasarela de pagos Ecommerce</option>
+            <option value="Ecommerce">Ecommerce</option>
         </select>
         <p class="number-pages">Número de paginas internas</p>
         <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
@@ -411,13 +420,12 @@ class PriceSeo {
     }
 }
 
-//objects change HTML in option Anatilitycs
+//START objects change HTML in option Anatilitycs
 let priceGtm = 2
 let priceAnalitycs = 5
 let priceEvents = 45
 let priceDataStudio = 10000
 let totalPriceWeb = priceGtm + priceAnalitycs + priceEvents + priceDataStudio
-
 
 let textListGtml = new TextObject()
 let textListEvents = new TextObject()
@@ -438,8 +446,9 @@ textListAnalitycs.subscribe(totalPriceWebHtml)
 textListGtml.subscribe(listGtm)
 textListGtml.subscribe(totalPriceWebHtml)
 
+// END objects change HTML in option Anatilitycs
 
-//objects change HTML in option SEO
+//START objects change HTML in option SEO
 let textPriceSeo = new TextObject()
 let textListSeo = new TextObject()
 let listSeo  = new ListSeo()
@@ -447,8 +456,21 @@ let priceSeo  = new PriceSeo()
 textListSeo.subscribe(listSeo)
 textPriceSeo.subscribe(priceSeo)
 
+// END objects change HTML in option SEO
 
 
+//START objects change HTML in design web site
+
+    let basePriceLangingPage = 700000
+    let basePriceInformativeSite = 850000
+    let basePricePagePayment = 1800000
+    let basePriceEcommerce = 3000000
+    let priceVideos = 30000
+    let priceGalery = 50000
+    let priceSocialNetwork = 30000
+    let priceFormContact = 40000
+
+//END objects change HTML in design web site
 
 
 showProduct(1)
