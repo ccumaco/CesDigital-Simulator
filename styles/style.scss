@@ -140,10 +140,10 @@ header{
         align-items: center;
         padding: 1rem 3rem;
         .logo-team{
-            max-height: 50px;
+            width: 200px;
             @include screen("md") {
                 position: absolute;
-                top: 15px;
+                top: 8px;
                 left: 0;
                 right: 0;
                 margin: 0 auto;

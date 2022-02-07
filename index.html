@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/Logo-Cesdigital.ico">
     <link rel="styleshe    position: absolute;
     white-space: nowrap;et" href="./styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -13,105 +14,111 @@
     <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<header>
-    <div class="container-header">
-        <a href="/home.html">
-            <img class='logo-team' src="./images/computer.png" alt="logo Maacgraficas">
-        </a>
-        <div class="container-menu">
-            <ul>
-                <li><a href="home.html">Inicio</a></li>
-                <li><a href="index.html">Nuestros servicios</a></li>
-                <li><a href="home.html#contact">Contactanos</a></li>
-            </ul>
-            <i class="fas fa-bars image-mobile" onclick='openMenuMobile(!menuMobile)'></i>
-        </div>
-    </div>
-    <div class="menu-mobile">
-        <i class="fas fa-window-close close-btn" onclick='openMenuMobile(!menuMobile)'></i>
-        <ul>
-            <li class='active'><a href="home.html">Inicio</a></li>
-            <li><a href="index.html">Nuestros servicios</a></li>
-            <li><a href="home.html#contact">Contactanos</a></li>
-        </ul>
-    </div>
-</header>
+
 
 <body>
-    <div class="container-all-site">
-        <div class="bread-crumbs">
-            <i class="fas fa-home icon-home"></i>
-            <a href="home.html" class="breadcrumb-item active">Home</a> <span class="slash">/</span>
-            <a href="#" class="breadcrumb-item ">Simulador de precios</a>
-        </div>
-        <div class="container">
-            <div class="container-comeback">
-                <a href="index.html" class="comeback"><i class="fas fa-arrow-left"></i> Volver</a>
+    <div id="contenedor-principal">
+        <header>
+            <div class="container-header">
+                <a href="/home.html">
+                    <img class='logo-team' src="./images/Logo-Cesdigital.svg" alt="logo Cesdigital">
+                </a>
+                <div class="container-menu">
+                    <ul>
+                        <li><a href="home.html" onclick='openMenuMobile(!menuMobile)'>Inicio</a></li>
+                        <li><a href="index.html" onclick='openMenuMobile(!menuMobile)'>Nuestros servicios</a></li>
+                        <li><a href="#contact" onclick='openMenuMobile(!menuMobile)'>Contactanos</a></li>
+                    </ul>
+                    <i class="fas fa-bars image-mobile" onclick='openMenuMobile(!menuMobile)'></i>
+                </div>
             </div>
-            <div class="container-form">
-                <form action="index.html" method="post">
-                    <h1 class="title-simulator">Simulador de precios</h1>
-                    <div class="container-cards">
-                        <div class="card" onclick='showProduct(1)'>
-                            <input class="input-style" type="radio" name="service" id="design" checked>
-                            <label class="label-card" for="design">
-                                <img class="image-card" src="./images/code.png" alt="imagen diseño web">
-                                Diseño de sitios web
-                            </label>
-                        </div>
-                        <div class="card" onclick='showProduct(2)'>
-                            <input class="input-style" type="radio" name="service" id="seo">
-                            <label class="label-card" for="seo">
-                                <img class="image-card" src="./images/seo.png" alt="imagen de seo">
-                                Posicionamiento SEO
-                            </label>
-                        </div>
-                        <div class="card" onclick='showProduct(3)'>
-                            <input class="input-style" type="radio" name="service" id="analitycs">
-                            <label class="label-card" for="analitycs">
-                                <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
-                                Analitica web
-                            </label>
-                        </div>
-                        <!-- <div class="card" onclick='showProduct(4)'>
+            <div class="menu-mobile">
+                <i class="fas fa-window-close close-btn" onclick='openMenuMobile(!menuMobile)'></i>
+                <ul>
+                    <li class='active'><a href="home.html">Inicio</a></li>
+                    <li><a href="index.html">Nuestros servicios</a></li>
+                    <li><a href="home.html#contact">Contactanos</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="container-all-site">
+            <div class="bread-crumbs">
+                <i class="fas fa-home icon-home"></i>
+                <a href="home.html" class="breadcrumb-item active">Home</a> <span class="slash">/</span>
+                <a href="#" class="breadcrumb-item ">Simulador de precios</a>
+            </div>
+            <div class="container">
+                <div class="container-comeback">
+                    <a href="index.html" class="comeback"><i class="fas fa-arrow-left"></i> Volver</a>
+                </div>
+                <div class="container-form">
+                    <form action="index.html" method="post">
+                        <h1 class="title-simulator">Simulador de precios</h1>
+                        <div class="container-cards">
+                            <div class="card" onclick='showProduct(1)'>
+                                <input class="input-style" type="radio" name="service" id="design" checked>
+                                <label class="label-card" for="design">
+                                    <img class="image-card" src="./images/code.png" alt="imagen diseño web">
+                                    Diseño de sitios web
+                                </label>
+                            </div>
+                            <div class="card" onclick='showProduct(2)'>
+                                <input class="input-style" type="radio" name="service" id="seo">
+                                <label class="label-card" for="seo">
+                                    <img class="image-card" src="./images/seo.png" alt="imagen de seo">
+                                    Posicionamiento SEO
+                                </label>
+                            </div>
+                            <div class="card" onclick='showProduct(3)'>
+                                <input class="input-style" type="radio" name="service" id="analitycs">
+                                <label class="label-card" for="analitycs">
+                                    <img class="image-card" src="./images/analitycs.png" alt="imagen analitica web">
+                                    Analitica web
+                                </label>
+                            </div>
+                            <!-- <div class="card" onclick='showProduct(4)'>
                                 <input class="input-style" type="radio" name="service" id="piece">
                                 <label class="label-card" for="piece">
                                     <img class="image-card" src="./images/computer.png" alt="imagen piezas digitales">
                                     Diseño de piezas digitales
                                 </label>
                             </div> -->
-                    </div>
-                    <div id='container-forms'>
-                        <!-- HTML FORM -->
-                    </div>
-                </form>
-                <div class="container-cost">
-                    <div class="contrainer-information">
-                        <h4 class='title-cost'>Cotización</h4>
-                        <div id="quote-html">
-                            <!-- HTML QUOTE -->
                         </div>
+                        <div id='container-forms'>
+                            <!-- HTML FORM -->
+                        </div>
+                    </form>
+                    <div class="container-cost">
+                        <div class="contrainer-information">
+                            <h4 class='title-cost'>Cotización</h4>
+                            <div id="quote-html">
+                                <!-- HTML QUOTE -->
+                            </div>
+                        </div>
+                        <h6 class='title-observations'>Observaciones</h6>
+                        <p class='paragraph-observations'>El valor calculado es un precio mínimo aproximado y puede
+                            variar
+                            dependiendo de otros factores técnicos como lenguaje de programación, gestores de contenidos
+                            u
+                            componentes adicionales que se requieran como simuladores, animaciones, tipos de contenidos
+                            etc.
+                        </p>
                     </div>
-                    <h6 class='title-observations'>Observaciones</h6>
-                    <p class='paragraph-observations'>El valor calculado es un precio mínimo aproximado y puede variar
-                        dependiendo de otros factores técnicos como lenguaje de programación, gestores de contenidos u
-                        componentes adicionales que se requieran como simuladores, animaciones, tipos de contenidos etc.
-                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-to-pay">
-        <div class="content-modal">
-            <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
-            <h2 class="title-modal">Por último, déjanos tus datos para poder contactarnos contigo</h2>
-            <form class="form-pay" action="quote.php" method="post">
-                <input type="text" name="name" id="name" class="input-style" placeholder="Nombre Completo">
-                <input type="text" name="mail" id="mail" class="input-style" placeholder="Correo electrónico">
-                <input type="text" name="phone" id="subject" class="input-style" placeholder="Celular">
-                <input type="text" name="object-profile" hidden id="object-profile">
-                <button type="submit" class="send-form">Enviar </button>
-            </form>
+        <div class="modal-to-pay">
+            <div class="content-modal">
+                <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
+                <h2 class="title-modal">Por último, déjanos tus datos para poder contactarnos contigo</h2>
+                <form class="form-pay" action="quote.php" method="post">
+                    <input type="text" name="name" id="name" class="input-style" placeholder="Nombre Completo">
+                    <input type="text" name="mail" id="mail" class="input-style" placeholder="Correo electrónico">
+                    <input type="text" name="phone" id="subject" class="input-style" placeholder="Celular">
+                    <input type="text" name="object-profile" hidden id="object-profile">
+                    <button type="submit" class="send-form">Enviar </button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

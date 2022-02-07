@@ -150,12 +150,9 @@ function getTypeOfSite(){
     if (document.querySelector('#typeOfSite').value == 'Landing') {
         document.querySelector('#internal-pages').setAttribute('style', 'display: none')
         document.getElementsByClassName('number-pages')[0].setAttribute('style', 'display: none')
-        console.log('entrooo');
     } else {
-        console.log('no entrooo');
-        document.querySelector('#internal-pages').innerHTML = `
-            <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
-        `
+        document.querySelector('#internal-pages').setAttribute('style', 'display: block')
+        document.getElementsByClassName('number-pages')[0].setAttribute('style', 'display: block')
     }
 }
 
