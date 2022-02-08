@@ -1,8 +1,11 @@
 
+
+
 let objectCotization = {
     components: [],
     internalPages: 1,
     typeOfSite: 'ecommerce',
+    totalPrice: 0
 }
 
 function clearObject (service) {
@@ -11,12 +14,14 @@ function clearObject (service) {
             objectCotization = {
                 components: [],
                 typeOfSite: 'ecommerce',
-                internalPages: 1
+                internalPages: 1,
+                price: formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
             }
             break;
         case 2:
             objectCotization = {
                 mountsContract: 6,
+                price: formatNumber(800000)
             }
             break;
         case 3:
@@ -24,7 +29,8 @@ function clearObject (service) {
                 gtm: true,
                 analytics: true,
                 events: true,
-                dataStudio: true
+                dataStudio: true,
+                price: totalPriceWeb
             }
             break;
     
@@ -107,9 +113,8 @@ function getAnalytics(service){
                 textListDataEstudio.notify(``)
             }
             break;
-        default:
-            break;
-    }
+        }
+        objectCotization.price = totalPriceWeb
     
 }
 
@@ -117,6 +122,8 @@ function formatNumber (n) {
 	n = String(n).replace(/\D/g, "");
   return n === '' ? n : Number(n).toLocaleString();
 }
+
+let totalMountContract = 0
 function getMounthsContract(){
     let costSeoMount = 800000
     let oneMountMore = 100000
@@ -126,34 +133,109 @@ function getMounthsContract(){
     textPriceSeo.notify(`${formatNumber(costSeoMount)} + IVA`)
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
     textListSeo.notify(`${document.querySelector('#mounthContract').value} Meses de posicionamiento SEO`)
-    
+    objectCotization.price = formatNumber(costSeoMount)
+    totalMountContract = formatNumber(costSeoMount)
 }
 
 function getInterComponent(){
     for (let i = 0; i < document.querySelectorAll('.input-components').length; i++) {
         const element = document.querySelectorAll('.input-components')[i];
         if (element.checked && !objectCotization.components.includes(element.id)) {
+            if (element.id == 'galetyPhotos') {
+                textPriceInternalPages.subscribe(listGalery)
+                totalPriceDesignWeb += priceGalery
+            } else if(element.id == 'socialNetwork'){
+                textPriceInternalPages.subscribe(listSocial)
+                totalPriceDesignWeb += priceSocialNetwork
+            } else if (element.id == 'contactForm'){
+                textPriceInternalPages.subscribe(listFormContact)
+                totalPriceDesignWeb += priceFormContact
+            } else if (element.id == 'Videos'){
+                textPriceInternalPages.subscribe(listVideos)
+                totalPriceDesignWeb += priceVideos
+            }
+            textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
             objectCotization.components.push(element.id)
         } else if (!element.checked && objectCotization.components.includes(element.id)) {
             objectCotization.components.splice(objectCotization.components.indexOf(element.id), 1)
+            if (element.id == 'galetyPhotos') {
+                textPriceInternalPages.subscribe(deleteListGalery)
+                totalPriceDesignWeb -= priceGalery
+            } else if(element.id == 'socialNetwork'){
+                textPriceInternalPages.subscribe(deleteListSocial)
+                totalPriceDesignWeb -= priceSocialNetwork
+            } else if (element.id == 'contactForm'){
+                textPriceInternalPages.subscribe(deleteListFormContact)
+                totalPriceDesignWeb -= priceFormContact
+            } else if (element.id == 'Videos'){
+                textPriceInternalPages.subscribe(deleteListVideos)
+                totalPriceDesignWeb -= priceVideos
+            }
+            textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
         }
+        objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
     }
     
 }
 
+function disableInterComponents(){
+    for (let i = 0; i < document.querySelectorAll('.input-components').length; i++) {
+        const element = document.querySelectorAll('.input-components')[i];
+        if (element.checked) {
+            element.click()
+        }
+    }
+}
+
+let beforePrice = 0
 function getInternalPages(){
     objectCotization.internalPages = document.querySelector('#internal-pages').value
-    
+    totalPriceDesignWeb -= beforePrice 
+    beforePrice = (oneMorePage * objectCotization.internalPages)
+    totalPriceDesignWeb += beforePrice
+    textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
+    objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
 }
 function getTypeOfSite(){
     objectCotization.typeOfSite = document.querySelector('#typeOfSite').value
+    disableInterComponents()
+    initialPriceService(document.querySelector('#typeOfSite').value)
     if (document.querySelector('#typeOfSite').value == 'Landing') {
+        document.querySelector('#list-internal-pages').setAttribute('style', 'display: none')
         document.querySelector('#internal-pages').setAttribute('style', 'display: none')
-        document.getElementsByClassName('number-pages')[0].setAttribute('style', 'display: none')
+        document.getElementsByClassName('number-pages')[1].setAttribute('style', 'display: none')
+        totalPriceDesignWeb -= (document.querySelector('#internal-pages').value * oneMorePage)
+        textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
     } else {
+        document.querySelector('#list-internal-pages').removeAttribute('style')
+        totalPriceDesignWeb += (document.querySelector('#internal-pages').value * oneMorePage)
+        textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
         document.querySelector('#internal-pages').setAttribute('style', 'display: block')
-        document.getElementsByClassName('number-pages')[0].setAttribute('style', 'display: block')
+        document.getElementsByClassName('number-pages')[1].setAttribute('style', 'display: block')
     }
+    objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
+}
+
+function initialPriceService(service){
+    switch (service) {
+        case 'Landing':
+            totalPriceDesignWeb = basePriceLangingPage + oneMorePage
+            textMinimalPrice.notify(formatNumber(basePriceLangingPage + oneMorePage))
+            break;
+        case 'InformativeSite':
+            totalPriceDesignWeb = basePriceInformativeSite + oneMorePage
+            textMinimalPrice.notify(formatNumber(basePriceLangingPage + oneMorePage))
+            break;
+        case 'InformativeSitePayment':
+            totalPriceDesignWeb = basePricePagePayment + oneMorePage
+            textMinimalPrice.notify(formatNumber(basePricePagePayment + oneMorePage))
+            break;
+        case 'Ecommerce':
+            totalPriceDesignWeb = basePriceEcommerce + oneMorePage
+            textMinimalPrice.notify(formatNumber(basePriceEcommerce + oneMorePage))
+            break;
+    }
+    objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
 }
 
 
@@ -197,11 +279,11 @@ const formDesign = `
         <div class="components">
             <p class="title-components">Selecciona uno o varios componentes internos</p>
             <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="Videos">
-            <label class="label-components" for="Videos">Videos</label>
+            <label class="label-components"  for="Videos">Videos</label>
             <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="galetyPhotos">
-            <label class="label-components" for="galetyPhotos">Galeria de fotos</label>
+            <label class="label-components"  for="galetyPhotos">Galeria de fotos</label>
             <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="socialNetwork">
-            <label class="label-components" for="socialNetwork">Redes sociales</label>
+            <label class="label-components"  for="socialNetwork">Redes sociales</label>
             <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="contactForm">
             <label class="label-components" for="contactForm">Formulario de contacto</label>
         </div>
@@ -291,14 +373,15 @@ const formPuzzleDigital = `
 let quoteFormDesign = `
     <ul class='list'>
         <li class="type-options">- Diseño de sitio web</li>
-        <li class="type-options">- Sitio informativo con páginas internas</li>
-        <li class="type-options">- 3 páginas internas</li>
-        <li class="type-options">- Galería de fotos</li>
-        <li class="type-options">- Formulario de contácto</li>
+        <li class="type-options" id="list-internal-pages">- 1 página interna</li>
+        <li class="type-options" id="list-galery"></li>
+        <li class="type-options" id="list-form"></li>
+        <li class="type-options" id="list-social-network"></li>
+        <li class="type-options" id="list-videos"></li>
     </ul>
     <hr>
     <p class='text-option'>Valor mínimo aproximado</p>
-    <p class='price' id="minimal-price">$2.000.000</p>
+    <p class='price' id="minimal-price">$850.000</p>
     <p class='text-option'>
         Otros valores a tener en cuenta
     </p>
@@ -313,8 +396,8 @@ let quoteFormDesign = `
         </div>
     </div>
     <p class='text-option'>valor mínimo aproximado</p>
-    <p class='price'>
-        $2.230.000 + IVA
+    <p class='price' id="price-design-web">
+        $1.180.000 + IVA
     </p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
@@ -323,6 +406,7 @@ let quoteFormDesign = `
 
 let quoteFormSeo = `
     <ul class='list'>
+        <li class="type-options">- Posicionamiento SEO</li>
         <li class="type-options" id="mounts-seo">-6 Meses de posicionamiento SEO</li>
     </ul>
     <hr />
@@ -335,6 +419,7 @@ let quoteFormSeo = `
 
 const quoteAnalytics = `
     <ul class='list'>
+        <li class="type-options">- Analituca Web</li>
         <li class="type-options" id="list-gtm">- Google Tag Manager</li>
         <li class="type-options" id="list-analitycs">- Google analytics</li>
         <li class="type-options" id="list-events">- Eventos en analytics</li>
@@ -342,7 +427,7 @@ const quoteAnalytics = `
     </ul>
     <hr />
     <p class='text-option'><b>Total</b></p>
-    <p class='price'><b id="price-analitycs">$1'000.000 + iva </b></p>
+    <p class='price'><b id="price-analitycs">$800.000 + iva </b></p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
     </div>
@@ -355,7 +440,12 @@ class Subject {
     }
 
     subscribe (observer) {
-        this.observers.push(observer)
+        if (!this.observers.includes(observer)) {
+            this.observers.push(observer)
+        } else {
+            this.observers.splice(this.observers.indexOf(observer), 1)
+            this.observers.push(observer)
+        }
     }
 
     unsbscribe (observer) {
@@ -377,7 +467,6 @@ class TextObject extends Subject {
     notify (text) {
         this.text = text
         super.notify(this)
-        console.log(this, 'esto es this');
     }
 }
 
@@ -406,6 +495,61 @@ class ListSeo {
         document.querySelector('#mounts-seo').innerHTML = subject.text
     }
 }
+class PriceInternalPage {
+    notify(subject){
+        document.querySelector('#price-design-web').innerHTML = subject.text
+    }
+}
+class MinimalPrice {
+    notify(subject){
+        document.querySelector('#minimal-price').innerHTML = subject.text
+    }
+}
+class TextListInternalPages {
+    notify(){
+        document.querySelector('#list-internal-pages').innerHTML = `- ${document.querySelector('#internal-pages').value} página interna`
+    }
+}
+class TextListGalery {
+    notify(){
+        document.querySelector('#list-galery').innerHTML = `- Galería de fotos`
+    }
+}
+class DeleteTextListGalery {
+    notify(){
+        document.querySelector('#list-galery').innerHTML = ``
+    }
+}
+class TextListFormContact {
+    notify(){
+        document.querySelector('#list-form').innerHTML = `- Formulario de contácto`
+    }
+}
+class DeleteTextListFormContact {
+    notify(){
+        document.querySelector('#list-form').innerHTML = ``
+    }
+}
+class TextListVideos {
+    notify(){
+        document.querySelector('#list-videos').innerHTML = `- Videos`
+    }
+}
+class DeleteTextListVideos {
+    notify(){
+        document.querySelector('#list-videos').innerHTML = ``
+    }
+}
+class TextListSocial {
+    notify(){
+    document.querySelector('#list-social-network').innerHTML = `- Redes Sociales`
+    }
+}
+class DeleteTextListSocial {
+    notify(){
+    document.querySelector('#list-social-network').innerHTML = ``
+    }
+}
 class TotalPriceWebHtml {
     notify(){
         document.querySelector('#price-analitycs').innerHTML = `$${totalPriceWeb} + iva`
@@ -418,10 +562,10 @@ class PriceSeo {
 }
 
 //START objects change HTML in option Anatilitycs
-let priceGtm = 2
-let priceAnalitycs = 5
-let priceEvents = 45
-let priceDataStudio = 10000
+let priceGtm = 100000
+let priceAnalitycs = 200000
+let priceEvents = 200000
+let priceDataStudio = 300000
 let totalPriceWeb = priceGtm + priceAnalitycs + priceEvents + priceDataStudio
 
 let textListGtml = new TextObject()
@@ -457,18 +601,41 @@ textPriceSeo.subscribe(priceSeo)
 
 
 //START objects change HTML in design web site
+    let textPriceInternalPages = new TextObject()
+    let textMinimalPrice = new TextObject()
+    let minimalPrice = new MinimalPrice()
+    let priceInternalPage  = new PriceInternalPage()
+    let listInternalPrice = new TextListInternalPages()
+    let listGalery = new TextListGalery()
+    let listFormContact = new TextListFormContact()
+    let listSocial = new TextListSocial()
+    let listVideos = new TextListVideos()
+    let deleteListGalery = new DeleteTextListGalery()
+    let deleteListFormContact = new DeleteTextListFormContact()
+    let deleteListSocial = new DeleteTextListSocial()
+    let deleteListVideos = new DeleteTextListVideos()
 
+    textPriceInternalPages.subscribe(priceInternalPage)
+    textPriceInternalPages.subscribe(listInternalPrice)
+    textMinimalPrice.subscribe(minimalPrice)
+    let priceHosting= 150000
+    let priceDomain = 80000
+    let totalPriceDesignWeb = 850000
     let basePriceLangingPage = 700000
     let basePriceInformativeSite = 850000
     let basePricePagePayment = 1800000
     let basePriceEcommerce = 3000000
     let priceVideos = 30000
     let priceGalery = 50000
+    let oneMorePage = 100000
     let priceSocialNetwork = 30000
     let priceFormContact = 40000
+    
+    //END objects change HTML in design web site
 
-//END objects change HTML in design web site
 
 
-showProduct(1)
-
+    
+    showProduct(1)
+    
+    
