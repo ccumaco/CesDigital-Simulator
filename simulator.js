@@ -210,16 +210,14 @@ function getTypeOfSite(){
     initialPriceService(document.querySelector('#typeOfSite').value)
     if (document.querySelector('#typeOfSite').value == 'Landing') {
         document.querySelector('#list-internal-pages').setAttribute('style', 'display: none')
-        document.querySelector('#internal-pages').setAttribute('style', 'display: none')
-        document.getElementsByClassName('number-pages')[1].setAttribute('style', 'display: none')
+        document.querySelector('.input-range__range').setAttribute('style', 'display: none')
         totalPriceDesignWeb -= (document.querySelector('#internal-pages').value * oneMorePage)
         textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
     } else {
         document.querySelector('#list-internal-pages').removeAttribute('style')
         totalPriceDesignWeb += (document.querySelector('#internal-pages').value * oneMorePage)
         textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
-        document.querySelector('#internal-pages').setAttribute('style', 'display: block')
-        document.getElementsByClassName('number-pages')[1].setAttribute('style', 'display: block')
+        document.querySelector('.input-range__range').setAttribute('style', 'display: block')
     }
     objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
 }
