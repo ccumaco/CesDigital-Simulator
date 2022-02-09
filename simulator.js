@@ -7,7 +7,7 @@ let objectCotization = {
     typeOfSite: 'ecommerce',
     totalPrice: 0
 }
-
+let regex = /(\d+)/g;
 function clearObject (service) {
     switch (service) {
         case 1:
@@ -125,8 +125,8 @@ function formatNumber (n) {
 
 let totalMountContract = 0
 function getMounthsContract(){
-    let costSeoMount = 800000
-    let oneMountMore = 100000
+    let costSeoMount = 1800000
+    let oneMountMore = 150000
     if (document.querySelector('#mounthContract').value > 6) {
         costSeoMount = costSeoMount + ((document.querySelector('#mounthContract').value - 6) * oneMountMore)
     }
@@ -263,7 +263,7 @@ const formDesign = `
             <option value="Tipo de sitio web" disabled>Tipo de sitio web</option>
             <option value="InformativeSite">Sitio informativo con páginas internas</option>
             <option value="Landing">Landing page (Página de aterrizaje)</option>
-            <option value="InformativeSitePayment">Sitio informativo con pasarela de pagos Ecommerce</option>
+            <option value="InformativeSitePayment">Sitio informativo con pasarela de pagos</option>
             <option value="Ecommerce">Ecommerce</option>
         </select>
         <p class="number-pages">Número de paginas internas</p>
@@ -381,7 +381,7 @@ let quoteFormDesign = `
     </ul>
     <hr>
     <p class='text-option'>Valor mínimo aproximado</p>
-    <p class='price' id="minimal-price">$850.000</p>
+    <p class='price' id="minimal-price">$950.000</p>
     <p class='text-option'>
         Otros valores a tener en cuenta
     </p>
@@ -395,7 +395,7 @@ let quoteFormDesign = `
             <p class='price'>$80.000</p>
         </div>
     </div>
-    <p class='text-option'>valor mínimo aproximado</p>
+    <p class='text-option'>Valor total aproximado</p>
     <p class='price' id="price-design-web">
         $1.180.000 + IVA
     </p>
@@ -419,7 +419,7 @@ let quoteFormSeo = `
 
 const quoteAnalytics = `
     <ul class='list'>
-        <li class="type-options">- Analituca Web</li>
+        <li class="type-options">- Analitica Web</li>
         <li class="type-options" id="list-gtm">- Google Tag Manager</li>
         <li class="type-options" id="list-analitycs">- Google analytics</li>
         <li class="type-options" id="list-events">- Eventos en analytics</li>
@@ -427,7 +427,7 @@ const quoteAnalytics = `
     </ul>
     <hr />
     <p class='text-option'><b>Total</b></p>
-    <p class='price'><b id="price-analitycs">$800.000 + iva </b></p>
+    <p class='price'><b id="price-analitycs">$1'250.000 + iva </b></p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
     </div>
@@ -502,12 +502,23 @@ class PriceInternalPage {
 }
 class MinimalPrice {
     notify(subject){
-        document.querySelector('#minimal-price').innerHTML = subject.text
+        let numberComplete = ''
+        for (let number = 0; number < subject.text.match(regex).length; number++) {
+            const element = subject.text.match(regex)[number];
+            numberComplete += element
+        }
+        document.querySelector('#minimal-price').innerHTML =  `$${formatNumber(Number(numberComplete - priceHosting - priceDomain))}`
+       
     }
 }
 class TextListInternalPages {
     notify(){
-        document.querySelector('#list-internal-pages').innerHTML = `- ${document.querySelector('#internal-pages').value} página interna`
+        
+        if (document.querySelector('#internal-pages').value > 1) {
+            document.querySelector('#list-internal-pages').innerHTML = `- ${document.querySelector('#internal-pages').value} páginas internas`
+        } else {
+            document.querySelector('#list-internal-pages').innerHTML = `- ${document.querySelector('#internal-pages').value} página interna`
+        }
     }
 }
 class TextListGalery {
@@ -552,7 +563,7 @@ class DeleteTextListSocial {
 }
 class TotalPriceWebHtml {
     notify(){
-        document.querySelector('#price-analitycs').innerHTML = `$${totalPriceWeb} + iva`
+        document.querySelector('#price-analitycs').innerHTML = `$${formatNumber(totalPriceWeb)} + iva`
     }
 }
 class PriceSeo {
@@ -561,11 +572,13 @@ class PriceSeo {
     }
 }
 
+
+
 //START objects change HTML in option Anatilitycs
-let priceGtm = 100000
-let priceAnalitycs = 200000
-let priceEvents = 200000
-let priceDataStudio = 300000
+let priceGtm = 400000
+let priceAnalitycs = 300000
+let priceEvents = 50000
+let priceDataStudio = 500000
 let totalPriceWeb = priceGtm + priceAnalitycs + priceEvents + priceDataStudio
 
 let textListGtml = new TextObject()
@@ -617,6 +630,7 @@ textPriceSeo.subscribe(priceSeo)
 
     textPriceInternalPages.subscribe(priceInternalPage)
     textPriceInternalPages.subscribe(listInternalPrice)
+    textPriceInternalPages.subscribe(minimalPrice)
     textMinimalPrice.subscribe(minimalPrice)
     let priceHosting= 150000
     let priceDomain = 80000
