@@ -608,7 +608,7 @@ header{
                 .contrainer-information {
                     flex-basis: 30%;
                     background: $white-color;
-                    max-width: 300px;
+                    max-width: 90%;
                     margin: 2rem auto 0;
                     border-radius: 10px;
                     padding: 2rem;
@@ -647,6 +647,10 @@ header{
                         color: $secondary-color;
                         font-family: 'Roboto', sans-serif;
                         text-align: left;
+                        font-weight: 500;
+                        &#price-design-web{
+                            font-size: 28px;
+                        }
                     }
 
                     .value {
@@ -677,6 +681,10 @@ header{
                             cursor: pointer;
                             font-family: 'Roboto', sans-serif;
                             border-radius: 10px;
+                            i{
+                                font-weight: bold;
+                                font-size: 15px;
+                            }
                         }
                     }
                 }

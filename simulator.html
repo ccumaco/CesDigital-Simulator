@@ -54,8 +54,8 @@
         <div class="container-all-site">
             <div class="bread-crumbs">
                 <i class="fas fa-home icon-home"></i>
-                <a href="index.html" class="breadcrumb-item active">Home</a> <span class="slash">/</span>
-                <a href="#" class="breadcrumb-item ">Simulador de precios</a>
+                <a href="index.html" class="breadcrumb-item ">Inicio</a> <span class="slash">/</span>
+                <a href="#" class="breadcrumb-item active">Simulador de precios</a>
             </div>
             <div class="container">
                 <div class="container-comeback">
@@ -122,9 +122,10 @@
                 <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
                 <h2 class="title-modal">Por último, déjanos tus datos para poder contactarnos contigo</h2>
                 <form class="form-pay" action="quote.php" method="post">
-                    <input type="text" name="name" id="name" class="input-style" placeholder="Nombre Completo">
-                    <input type="text" name="mail" id="mail" class="input-style" placeholder="Correo electrónico">
-                    <input type="text" name="phone" id="subject" class="input-style" placeholder="Celular">
+                    <input type="text" name="name" id="name" class="input-style" placeholder="Nombre Completo" required>
+                    <input type="text" name="mail" id="mail" class="input-style" placeholder="Correo electrónico" required>
+                    <input type="text" name="phone" id="subject" class="input-style" placeholder="Celular" required>
+                    <textarea name="messaje" id="messaje" cols="30" rows="5" class="input-style" placeholder="¿Algún mensaje de aclaracion?"></textarea>
                     <input type="text" name="object-profile" hidden id="object-profile">
                     <button type="submit" class="send-form">Enviar </button>
                 </form>

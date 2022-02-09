@@ -790,7 +790,7 @@ header .menu-mobile {
   -ms-flex-preferred-size: 30%;
       flex-basis: 30%;
   background: #fff;
-  max-width: 300px;
+  max-width: 90%;
   margin: 2rem auto 0;
   border-radius: 10px;
   padding: 2rem;
@@ -835,6 +835,11 @@ header .menu-mobile {
   color: #0092B8;
   font-family: 'Roboto', sans-serif;
   text-align: left;
+  font-weight: 500;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .price#price-design-web {
+  font-size: 28px;
 }
 
 .container-all-site .container .container-form .container-cost .contrainer-information .value {
@@ -872,6 +877,11 @@ header .menu-mobile {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
   border-radius: 10px;
+}
+
+.container-all-site .container .container-form .container-cost .contrainer-information .continer-submit .want i {
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .container-all-site .container .container-form .container-cost .title-observations {

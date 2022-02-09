@@ -400,7 +400,7 @@ let quoteFormDesign = `
         $1.180.000 + IVA
     </p>
     <div class="continer-submit">
-        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
+        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
     </div>
 `
 
@@ -413,7 +413,7 @@ let quoteFormSeo = `
     <p class='text-option' id="value-from-mounth">Total</p>
     <p class='price' id="price-seo"><b>$800.000 + iva </b></p>
     <div class="continer-submit">
-        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
+        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
     </div>
     `
 
@@ -429,7 +429,7 @@ const quoteAnalytics = `
     <p class='text-option'><b>Total</b></p>
     <p class='price'><b id="price-analitycs">$1'250.000 + iva </b></p>
     <div class="continer-submit">
-        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> > </b> </button>
+        <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
     </div>
 `
 
@@ -513,7 +513,6 @@ class MinimalPrice {
 }
 class TextListInternalPages {
     notify(){
-        
         if (document.querySelector('#internal-pages').value > 1) {
             document.querySelector('#list-internal-pages').innerHTML = `- ${document.querySelector('#internal-pages').value} páginas internas`
         } else {
