@@ -129,12 +129,19 @@ body {
   padding: 1rem 4rem;
   text-align: center;
   margin-top: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 991px) {
   .modal-to-pay .content-modal .form-pay .send-form {
     padding: .5rem 2rem;
   }
+}
+
+.modal-to-pay .content-modal .form-pay .send-form[disabled] {
+  background-color: #707070;
+  color: #fff;
+  cursor: not-allowed;
 }
 
 #contenedor-principal {
@@ -382,7 +389,7 @@ header .menu-mobile {
 
 .container-all-site .container .container-form .container-cards .card {
   text-align: center;
-  background-color: #0093b860;
+  background-color: rgba(0, 146, 184, 0.2);
   padding: 1rem;
   position: relative;
   border-radius: 10px;
@@ -394,6 +401,7 @@ header .menu-mobile {
   -ms-grid-rows: 180px;
       grid-template-rows: 180px;
   grid-gap: 1rem;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 
@@ -405,6 +413,16 @@ header .menu-mobile {
     width: 100%;
     margin: 1rem 0;
   }
+}
+
+.container-all-site .container .container-form .container-cards .card.active {
+  border: 2px solid #0092B8;
+}
+
+.container-all-site .container .container-form .container-cards .card:hover {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #0099FF;
 }
 
 .container-all-site .container .container-form .container-cards .card:nth-child(2) {
@@ -441,9 +459,12 @@ header .menu-mobile {
 .container-all-site .container .container-form .container-cards .card .input-style:checked + label:before {
   background-color: #0092B8;
   border: 1px solid #fff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  content: "\f560";
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  color: #fff;
+  font-size: 1rem;
+  content: '\2713';
+  padding-bottom: 1px;
 }
 
 .container-all-site .container .container-form .container-cards .card .label-card {
@@ -498,7 +519,7 @@ header .menu-mobile {
   width: 20px;
   height: 20px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 50%;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -513,7 +534,7 @@ header .menu-mobile {
 }
 
 .container-all-site .container .container-form .type-of-site {
-  margin: 1rem 0 0;
+  margin: 0 0 50px;
   border-radius: 5px;
   background-color: transparent;
   border: 1px solid #fff;
@@ -530,13 +551,11 @@ header .menu-mobile {
 .container-all-site .container .container-form .number-pages {
   color: #fff;
   font-family: 'Roboto', sans-serif;
-  margin-top: 1rem;
+  margin: 0 0 26px;
 }
 
-.container-all-site .container .container-form .input-range {
-  margin: 1rem 0;
-  display: block;
-  color: #fff;
+.container-all-site .container .container-form .number-pages:first-child {
+  margin: 50px 0 26px;
 }
 
 .container-all-site .container .container-form .container-steps-analitycs {
@@ -741,7 +760,7 @@ header .menu-mobile {
 
 .container-all-site .container .container-form .components .title-components {
   width: 100%;
-  margin: 1rem 0;
+  margin: 0rem 0 26px;
   color: #fff;
   font-family: 'Roboto', sans-serif;
 }
@@ -751,7 +770,7 @@ header .menu-mobile {
   padding: 0.4rem 1rem;
   border-radius: 30px;
   border: 1px solid #0092B8;
-  margin: 0.5rem 1rem 0.5rem 0rem;
+  margin: 0 1rem 0.5rem 0rem;
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
 }
@@ -838,7 +857,7 @@ header .menu-mobile {
   font-weight: 500;
 }
 
-.container-all-site .container .container-form .container-cost .contrainer-information .price#price-design-web {
+.container-all-site .container .container-form .container-cost .contrainer-information .price#price-design-web, .container-all-site .container .container-form .container-cost .contrainer-information .price#price-seo, .container-all-site .container .container-form .container-cost .contrainer-information .price#price-analitycs {
   font-size: 28px;
 }
 
@@ -1395,8 +1414,9 @@ header .menu-mobile {
 }
 
 .container-home .container-form .form-contact form input.send-form[disabled], .container-home .container-form .form-contact form select.send-form[disabled], .container-home .container-form .form-contact form textarea.send-form[disabled], .container-home .container-form .form-contact form button.send-form[disabled] {
-  background-color: #748090;
+  background-color: #707070;
   color: #fff;
+  cursor: not-allowed;
 }
 
 .container-home .container-form .form-contact form input option, .container-home .container-form .form-contact form select option, .container-home .container-form .form-contact form textarea option, .container-home .container-form .form-contact form button option {
@@ -1415,5 +1435,98 @@ footer {
   footer {
     font-size: 11px;
   }
+}
+
+.input-range {
+  max-width: 300px;
+}
+
+.input-range__range {
+  display: block;
+}
+
+.input-range__labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.input-range__labels span {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-align: center;
+  width: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+  display: inline-block;
+}
+
+.input-range__labels span.is-active {
+  color: red;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  font-size: 30px;
+}
+
+.input-range input[type="range"] {
+  overflow: visible;
+  width: 100%;
+  background: transparent;
+  outline: 0;
+  -webkit-appearance: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.input-range input[type="range"]::-webkit-slider-runnable-track {
+  background: #fff;
+  height: 3px;
+}
+
+.input-range input[type="range"]::-moz-range-track {
+  background: #fff;
+  height: 3px;
+}
+
+.input-range input[type="range"]::-ms-track {
+  background: transparent;
+  color: transparent;
+  height: 20px;
+  border: 0;
+}
+
+.input-range input[type="range"]::-ms-fill-lower, .input-range .input-range::-ms-fill-upper {
+  background: #fff;
+  background-image: linear-gradient(to bottom, #0092B8 40%, #fff 40%, #fff 60%, #0092B8 60%);
+}
+
+.input-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #0092B8;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  cursor: ew-resize;
+  position: relative;
+  top: -8px;
+}
+
+.input-range input[type="range"]::-moz-range-thumb, .input-range input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #007eff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 0;
 }
 /*# sourceMappingURL=style.css.map */

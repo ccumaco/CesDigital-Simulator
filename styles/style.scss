@@ -115,8 +115,14 @@ body{
                 padding: 1rem 4rem;
                 text-align: center;
                 margin-top: 1rem;
+                cursor: pointer;
                 @include screen("md") {
                     padding: .5rem 2rem;
+                }
+                &[disabled]{
+                    background-color: $grey-color;
+                    color: $white-color;
+                    cursor: not-allowed;
                 }
             }
         }
@@ -301,7 +307,7 @@ header{
                 }
                 .card {
                     text-align: center;
-                    background-color: #0093b860;
+                    background-color: rgba(0, 146, 184, 0.2);
                     padding: 1rem;
                     position: relative;
                     border-radius: 10px;
@@ -310,11 +316,19 @@ header{
                     grid-template-columns: 1fr;
                     grid-template-rows: 180px;
                     grid-gap: 1rem;
+                    border: 2px solid transparent;
                     cursor: pointer;
                     @include screen("md") {
                         display: flex;
                         width: 100%;
                         margin: 1rem 0;
+                    }
+                    &.active{
+                        border: 2px solid $secondary-color;
+                    }
+                    &:hover{
+                        box-sizing: border-box;
+                        border: 2px solid #0099FF;
                     }
                     &:nth-child(2) {
                         margin-left: 2rem;
@@ -343,8 +357,11 @@ header{
                         &:checked+label:before {
                             background-color: $secondary-color;
                             border: 1px solid $white-color;
-                            box-sizing: border-box;
-                            content: "\f560";
+                            box-sizing: content-box;
+                            color: #fff;
+                            font-size: 1rem;
+                            content: '\2713';
+                            padding-bottom: 1px;
                         }
                     }
                     
@@ -376,7 +393,7 @@ header{
                             width: 20px;
                             height: 20px;
                             background-color: $white-color;
-                            border-radius: 10px;
+                            border-radius: 50%;
                             position: absolute;
                             top: 10px;
                             right: 10px;
@@ -391,7 +408,7 @@ header{
             }
             
             .type-of-site {
-                margin: 1rem 0 0;
+                margin: 0 0 50px;
                 border-radius: 5px;
                 background-color: transparent;
                 border: 1px solid $white-color;
@@ -407,13 +424,10 @@ header{
             .number-pages {
                 color: $white-color;
                 font-family: 'Roboto', sans-serif;
-                margin-top: 1rem;
-            }
-
-            .input-range {
-                margin: 1rem 0;
-                display: block;
-                color: $white-color;
+                margin: 0 0 26px;
+                &:first-child{
+                    margin: 50px 0 26px;
+                }
             }
             .container-steps-analitycs{
                 margin-top: 1rem;
@@ -570,7 +584,7 @@ header{
                 flex-wrap: wrap;
                 .title-components {
                     width: 100%;
-                    margin: 1rem 0;
+                    margin: 0rem 0 26px;
                     color: $white-color;
                     font-family: 'Roboto', sans-serif;
                 }
@@ -580,7 +594,7 @@ header{
                     padding: 0.4rem 1rem;
                     border-radius: 30px;
                     border: 1px solid $secondary-color;
-                    margin: 0.5rem 1rem 0.5rem 0rem;
+                    margin: 0 1rem 0.5rem 0rem;
                     font-family: 'Roboto', sans-serif;
                     cursor: pointer;
                     &:nth-child(2) {
@@ -648,7 +662,7 @@ header{
                         font-family: 'Roboto', sans-serif;
                         text-align: left;
                         font-weight: 500;
-                        &#price-design-web{
+                        &#price-design-web, &#price-seo, &#price-analitycs{
                             font-size: 28px;
                         }
                     }
@@ -854,6 +868,7 @@ header{
                     margin: 1rem 0;
                 }
             }
+
             @include screen("md") {
                 margin: 1rem 0;
                 width: 100%;
@@ -1039,8 +1054,9 @@ header{
                             color: $white-color;
                         }
                         &[disabled]{
-                            background-color: #748090;
+                            background-color: $grey-color;
                             color: $white-color;
+                            cursor: not-allowed;
                         }
                     }
                     option{
@@ -1063,3 +1079,89 @@ footer {
         font-size: 11px;
     }
 }
+.input-range {
+    max-width: 300px;
+    &__range {
+      display: block;
+    }
+    &__labels {
+      display: flex;
+      justify-content: space-between;
+      span {
+        align-self: flex-end;
+        text-align: center;
+        width: 20px;
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+        transition: color 0.4s ease;
+        display: inline-block;
+        &.is-active {
+          color: red;
+          transition-duration: 0.3s;
+          font-size: 30px;
+        }
+      }
+    }
+  
+    input[type="range"] {
+      overflow: visible;
+      width: 100%;
+      background: transparent;
+      outline: 0;
+      -webkit-appearance: none;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+    }
+  
+    input[type="range"]::-webkit-slider-runnable-track {
+      background: $white-color;
+      height: 3px;
+    }
+    input[type="range"]::-moz-range-track {
+      background: $white-color;
+      height: 3px;
+    }
+    input[type="range"]::-ms-track {
+      background: transparent;
+      color: transparent;
+      height: 20px;
+      border: 0;
+    }
+  
+    input[type="range"]::-ms-fill-lower, .input-range::-ms-fill-upper {
+      background: $white-color;
+      background-image: linear-gradient(
+        to bottom,
+        $secondary-color 40%,
+        $white-color 40%,
+        $white-color 60%,
+        $secondary-color 60%
+      );
+    }
+  
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: $secondary-color;
+      border: 3px solid $white-color;
+      border-radius: 50%;
+      cursor: ew-resize;
+      position: relative;
+      top: -8px;
+    }
+  
+    input[type="range"]::-moz-range-thumb, input[type="range"]::-ms-thumb {
+      width: 20px;
+      height: 20px;
+      background: #007eff;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 0;
+    }
+  }
+  

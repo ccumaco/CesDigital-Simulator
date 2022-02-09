@@ -69,6 +69,14 @@ function showProduct(product) {
         default:
             break;
     }
+    for (let i = 0; i < document.getElementsByClassName('card').length; i++) {
+        const element = document.getElementsByClassName('card')[i];
+        if (element == document.getElementsByClassName('card')[product - 1]) {
+            element.className = 'card active'
+        } else {
+            element.className = 'card'
+        }
+    }
 }
 
 function getAnalytics(service){
@@ -267,15 +275,18 @@ const formDesign = `
             <option value="Ecommerce">Ecommerce</option>
         </select>
         <p class="number-pages">Número de paginas internas</p>
-        <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="6" step="1" list="ticks">
-        <datalist id="ticks" >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-        </datalist>
+        <div class="input-range">
+            <div class="input-range__range js-slider">
+                <input onchange="getInternalPages()" id="internal-pages" type="range" class="input-range" min="1" value="1" max="5" step="1" list="ticks"/>
+                <div class="input-range__labels js-slider__labels">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                </div>
+            </div>
+        </div>
         <div class="components">
             <p class="title-components">Selecciona uno o varios componentes internos</p>
             <input class="input-components" onChange="getInterComponent()" type="checkbox" name="Components" id="Videos">
@@ -305,7 +316,20 @@ const formSeo = `
     <div class="step">
         <p class="title-step">Paso 4</p>
         <p class="paragraph-step">Minimo 6 meses de contrato</p>
-        <input onchange="getMounthsContract()" id="mounthContract" type="range" class="input-range" min="6" value="6" max="12" step="1" list="ticks">
+        <div class="input-range">
+            <div class="input-range__range js-slider">
+                <input onchange="getMounthsContract()" id="mounthContract" type="range" class="input-range" min="6" value="6" max="12" step="1" list="ticks">
+                <div class="input-range__labels js-slider__labels">
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                    <span>11</span>
+                    <span>12</span>
+                </div>
+            </div>
+        </div>
         <datalist id="ticks" >
             <option>6</option>
             <option>7</option>
@@ -411,7 +435,7 @@ let quoteFormSeo = `
     </ul>
     <hr />
     <p class='text-option' id="value-from-mounth">Total</p>
-    <p class='price' id="price-seo"><b>$800.000 + iva </b></p>
+    <p class='price' id="price-seo">$800.000 + iva </p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
     </div>
@@ -427,7 +451,7 @@ const quoteAnalytics = `
     </ul>
     <hr />
     <p class='text-option'><b>Total</b></p>
-    <p class='price'><b id="price-analitycs">$1'250.000 + iva </b></p>
+    <p class='price' id="price-analitycs">$1'250.000 + iva</p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
     </div>
@@ -647,8 +671,26 @@ textPriceSeo.subscribe(priceSeo)
     //END objects change HTML in design web site
 
 
+// input rangue design
+var $sliders = $('.js-slider')
 
-    
-    showProduct(1)
+$sliders.each(function () {
+  var $slider = $(this)
+    , $labels = $slider.find('.js-slider__labels span')
+
+  $slider.find('input[type="range"]').on('input', function () {
+    var val = $(this).val()
+      , $activeLabel = $labels.filter(function () {
+          return $(this).html() === val
+        })
+    $labels.removeClass('is-active')
+    $activeLabel.addClass('is-active')
+
+  }).trigger('input')
+})
+// input rangue design
+
+
+showProduct(1)
     
     

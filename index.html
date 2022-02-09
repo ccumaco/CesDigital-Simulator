@@ -17,8 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Cesdigital</title>
 </head>
@@ -40,7 +40,7 @@
                         <li><a href="index.html">Nuestros servicios</a></li>
                         <li><a href="#contact">Contactanos</a></li>
                     </ul>
-                    <i class="fas fa-bars image-mobile"></i>
+                    <i class="fas fa-bars image-mobile" onclick="openMenuMobile(!menuMobile)"></i>
                 </div>
             </div>
             <div class="menu-mobile">
@@ -48,7 +48,7 @@
                 <ul>
                     <li class='active'><a href="index.html">Inicio</a></li>
                     <li><a href="simulator.html">Nuestros servicios</a></li>
-                    <li><a href="index.html#contact">Contactanos</a></li>
+                    <li><a onclick='openMenuMobile(!menuMobile)' href="index.html#contact">Contactanos</a></li>
                 </ul>
             </div>
         </header>
@@ -111,7 +111,7 @@
                     <h4 class='atencion'>Atención al cliente</h4>
                     <p><br></p>
                     <ul>
-                        <li class='rs'><i class="fab fa-facebook-f"></i><a>https://www.facebook.com/Cesdigital</a></li>
+                        <!-- <li class='rs'><i class="fab fa-facebook-f"></i><a>https://www.facebook.com/Cesdigital</a></li> -->
                         <li class='rs'><i class="fab fa-whatsapp"></i><a target='blank'
                                 href="https://api.whatsapp.com/send?phone=+573203497458&text=Hola, Nececito mas informacion sobre los productos!">320
                                 349 7457</a></li>
