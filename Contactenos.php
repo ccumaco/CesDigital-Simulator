@@ -18,9 +18,7 @@ $message .= "Servicio: " . $_POST['service'] . " \r\n";
 $message .= "Enviado el: " . date('d/m/Y', time());
 
 $para = 'carloscumaco5@gmail.com';
-$asunto = 'Mensaje de prueba php';
+$asunto = 'Formulario lleno';
 
 mail($para, $asunto, utf8_decode($message), $header);
-
-header("Location:index.html");
 ?>
