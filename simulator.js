@@ -246,19 +246,18 @@ function initialPriceService(service){
 
 
 function confirmSendForm () {
-    document.querySelector('.modal-to-pay').innerHTML = `
-    <div class="content-modal">
-        <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
-        <img class="image-checked" src="./images/checked.png" />
-        <h2 class="title-modal">Por último, déjanos tus datos para poder contactarnos contigo</h2>
-    </div>
-    `
+    document.querySelector('.thanks-modal').style.display = 'block'
+    document.querySelector('.container-hidden').style.display = 'none'
 }
 
 let modalToPay = false
 function openModalToPay(){
     modalToPay = !modalToPay
+    document.querySelector('.thanks-modal').style.display = 'none'
+    document.querySelector('.container-hidden').style.display = 'block'
+    if (document.querySelector('#object-profile')) {
     document.querySelector('#object-profile').value = JSON.stringify(objectCotization)
+    }
     if (!modalToPay) {
         document.querySelector('.modal-to-pay').style.display = 'none'
     } else{

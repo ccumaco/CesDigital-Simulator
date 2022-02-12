@@ -21,4 +21,6 @@ $para = 'carloscumaco5@gmail.com';
 $asunto = 'Formulario lleno';
 
 mail($para, $asunto, utf8_decode($message), $header);
+
+header("Location:index.html");
 ?>
