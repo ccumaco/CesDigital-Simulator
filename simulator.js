@@ -68,8 +68,8 @@ function showProduct(product) {
             break;
         default:
             break;
-    }
-    for (let i = 0; i < document.getElementsByClassName('card').length; i++) {
+        }
+        for (let i = 0; i < document.getElementsByClassName('card').length; i++) {
         const element = document.getElementsByClassName('card')[i];
         if (element == document.getElementsByClassName('card')[product - 1]) {
             element.className = 'card active'
@@ -77,6 +77,13 @@ function showProduct(product) {
             element.className = 'card'
         }
     }
+    makeScroll()
+}
+
+function makeScroll (){
+    
+
+    window.scroll(0, document.querySelector('#container-forms').getBoundingClientRect().top)
 }
 
 function getAnalytics(service){
