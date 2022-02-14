@@ -17,10 +17,12 @@ $message .= "Mensaje: " . $_POST['message'] . " \r\n";
 $message .= "Servicio: " . $_POST['service'] . " \r\n";
 $message .= "Enviado el: " . date('d/m/Y', time());
 
-$para = 'carloscumaco5@gmail.com';
+$esteban = 'carloscumaco5@gmail.com';
+$miguel = 'carloscumaco5@gmail.com';
 $asunto = 'Formulario lleno';
 
-mail($para, $asunto, utf8_decode($message), $header);
+mail($esteban, $asunto, utf8_decode($message), $header);
+mail($miguel, $asunto, utf8_decode($message), $header);
 
 header("Location:");
 ?>
