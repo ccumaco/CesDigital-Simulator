@@ -156,9 +156,9 @@
                     <span class="close-modal-to-pay" onclick="openModalToPay()">&times;</span>
                     <h2 class="title-modal">Por último, déjanos tus datos para poder contactarnos contigo</h2>
                     <form class="form-pay" action="quote.php" method="post">
-                        <input type="text" name="name" id="name" class="input-style" placeholder="Nombre Completo" required>
-                        <input type="text" name="mail" id="mail" class="input-style" placeholder="Correo electrónico" required>
-                        <input type="text" name="phone" id="subject" class="input-style" placeholder="Celular" required>
+                        <input type="text" name="name" id="name" onkeypress="validateName()" class="input-style" placeholder="Nombre Completo" required>
+                        <input type="text" name="mail" id="mail" onkeypress="validateEmail()" class="input-style" placeholder="Correo electrónico" required>
+                        <input type="number" name="phone" id="subject" onkeypress="validateNumber()" class="input-style" placeholder="Celular" required>
                         <textarea name="messaje" id="messaje" cols="30" rows="5" class="input-style" placeholder="¿Algún mensaje de aclaracion?"></textarea>
                         <input type="text" name="object-profile" hidden id="object-profile">
                         <button type="submit" id="send-form-simulator" onclick="confirmSendForm()" class="send-form">Enviar </button>
