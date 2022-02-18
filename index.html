@@ -216,9 +216,9 @@
                 </div>
                 <div class="form-contact">
                     <form action="Contactenos.php" id="form-contact-us" method="post">
-                        <input type="text" name="name" id="name" class="name" placeholder="NOMBRE" required>
-                        <input type="text" name="mail" id="mail" class="email" placeholder="CORREO" required>
-                        <input type="text" name="phone" id="subject" class="subject" placeholder="TELÉFONO" required>
+                        <input type="text" onkeypress="validateName()" name="name" id="name" class="name" placeholder="NOMBRE" required>
+                        <input type="text" onkeypress="validateEmail()" name="mail" id="mail" class="email" placeholder="CORREO" required>
+                        <input type="number" onkeypress="validateNumber()" name="phone" id="subject" class="subject" placeholder="TELÉFONO" required>
                         <select name="service" id="service">
                             <option value="WEB">WEB</option>
                             <option value="SEO">SEO</option>
