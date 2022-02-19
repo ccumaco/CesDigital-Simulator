@@ -145,7 +145,7 @@ function getMounthsContract(){
     if (document.querySelector('#mounthContract').value > 6) {
         costSeoMount = costSeoMount + ((document.querySelector('#mounthContract').value - 6) * oneMountMore)
     }
-    textPriceSeo.notify(`${formatNumber(costSeoMount)} + IVA`)
+    textPriceSeo.notify(`${formatNumber(costSeoMount)}`)
     objectCotization.mountsContract = document.querySelector('#mounthContract').value
     textListSeo.notify(`${document.querySelector('#mounthContract').value} Meses de posicionamiento SEO`)
     objectCotization.price = formatNumber(costSeoMount)
@@ -169,7 +169,7 @@ function getInterComponent(){
                 textPriceInternalPages.subscribe(listVideos)
                 totalPriceDesignWeb += priceVideos
             }
-            textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
+            textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )}`)
             objectCotization.components.push(element.id)
         } else if (!element.checked && objectCotization.components.includes(element.id)) {
             objectCotization.components.splice(objectCotization.components.indexOf(element.id), 1)
@@ -186,7 +186,7 @@ function getInterComponent(){
                 textPriceInternalPages.subscribe(deleteListVideos)
                 totalPriceDesignWeb -= priceVideos
             }
-            textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
+            textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )}`)
         }
         objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
     }
@@ -208,7 +208,7 @@ function getInternalPages(){
     totalPriceDesignWeb -= beforePrice 
     beforePrice = (oneMorePage * objectCotization.internalPages)
     totalPriceDesignWeb += beforePrice
-    textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
+    textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )}`)
     objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
 }
 function getTypeOfSite(){
@@ -219,11 +219,11 @@ function getTypeOfSite(){
         document.querySelector('#list-internal-pages').setAttribute('style', 'display: none')
         document.querySelector('.input-range__range').setAttribute('style', 'display: none')
         totalPriceDesignWeb -= (document.querySelector('#internal-pages').value * oneMorePage)
-        textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
+        textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )}`)
     } else {
         document.querySelector('#list-internal-pages').removeAttribute('style')
         totalPriceDesignWeb += (document.querySelector('#internal-pages').value * oneMorePage)
-        textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )} + IVA`)
+        textPriceInternalPages.notify(`$${formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )}`)
         document.querySelector('.input-range__range').setAttribute('style', 'display: block')
     }
     objectCotization.price = formatNumber(totalPriceDesignWeb + priceHosting + priceDomain )
@@ -432,7 +432,7 @@ let quoteFormDesign = `
     </div>
     <p class='text-option'>Valor total aproximado</p>
     <p class='price' id="price-design-web">
-        $1.180.000 + IVA
+        $1.180.000
     </p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
@@ -446,7 +446,7 @@ let quoteFormSeo = `
     </ul>
     <hr />
     <p class='text-option' id="value-from-mounth">Total</p>
-    <p class='price' id="price-seo">$800.000 + iva </p>
+    <p class='price' id="price-seo">$800.000 </p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
     </div>
@@ -462,7 +462,7 @@ const quoteAnalytics = `
     </ul>
     <hr />
     <p class='text-option'><b>Total</b></p>
-    <p class='price' id="price-analitycs">$1'250.000 + iva</p>
+    <p class='price' id="price-analitycs">$1'250.000</p>
     <div class="continer-submit">
         <button class='want' onclick="openModalToPay()">¡Lo quiero! <b> <i class="fa-solid fa-chevron-right"></i> </b> </button>
     </div>
@@ -597,7 +597,7 @@ class DeleteTextListSocial {
 }
 class TotalPriceWebHtml {
     notify(){
-        document.querySelector('#price-analitycs').innerHTML = `$${formatNumber(totalPriceWeb)} + iva`
+        document.querySelector('#price-analitycs').innerHTML = `$${formatNumber(totalPriceWeb)}`
     }
 }
 class PriceSeo {
