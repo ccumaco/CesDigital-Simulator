@@ -1170,3 +1170,64 @@ footer {
     }
   }
   
+
+  .tkp-container{
+    max-width: 1280px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 200px;
+    .tkp-gracias{
+        font-family: 'Ubuntu', sans-serif;
+        color: #ffffff;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 400;
+        line-height: 2.8rem;
+        @include screen("md") {
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+        }
+    }
+    .tkp-gracias-2{
+        font-family: 'Ubuntu', sans-serif;
+        color: #ffffff;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: 100;
+        line-height: 2rem;
+    }
+    .tkp-redes{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        @include screen("md") {
+            flex-direction: column;
+        }
+        .tkp-redes-ico{
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 50px;
+            text-decoration: none;
+            @include screen("md") {
+                padding: 0px 10px;
+            }
+            &:hover{
+                text-decoration: underline;
+            }
+            p{
+                color: #FFC400;
+                font-family: 'Ubuntu', sans-serif;
+                font-size: 1.2rem;
+                font-weight: 100;
+                line-height: 2rem;
+            }
+            i{
+                color: #FFC400;
+                font-size: 1.2rem;
+                padding-right: 10px;
+            }
+        }
+    }
+}
