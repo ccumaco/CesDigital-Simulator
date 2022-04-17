@@ -173,6 +173,9 @@ header{
                     font-family: 'Roboto', sans-serif;
                     margin: 0 1rem;
                     list-style: none;
+                    i{
+                        color: #fff;
+                    }
                     a{
                         color: $white-color;
                         text-decoration: none;

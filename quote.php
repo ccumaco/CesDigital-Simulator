@@ -24,5 +24,5 @@ $asunto = 'Cotizacion realizada';
 mail($esteban, $asunto, utf8_decode($message), $header);
 mail($miguel, $asunto, utf8_decode($message), $header);
 
-header("Location:index.html");
+header("Location:gracias.html");
 ?>
