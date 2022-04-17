@@ -187,6 +187,7 @@ header{
                 @include screen("md") {
                     color: $white-color;
                     display: block;
+                    
                     right: 25px;
                     top: 25px;
                     position: absolute;
