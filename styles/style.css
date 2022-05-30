@@ -302,6 +302,116 @@ header .menu-mobile {
   }
 }
 
+.fixed-rs {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+  background-color: #081C39;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.fixed-rs > * {
+  margin: 0.5rem 0;
+  color: #fff;
+}
+
+.fixed-rs a {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.fixed-rs a:hover {
+  opacity: .7;
+}
+
+.fixed-rs .line {
+  height: 35px;
+  width: 1px;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
+.fixed-rs .follow-us {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 30px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.tes-container {
+  background-color: #fff;
+  padding: 80px 10px;
+}
+
+.tes-container .container-testimonials {
+  max-width: 1200px;
+}
+
+.tes-container .container-testimonials__title {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0px;
+  color: #0092B8;
+  opacity: 1;
+}
+
+.tes-container .container-testimonials__images {
+  display: -ms-grid;
+  display: grid;
+  margin: 50px auto 0;
+  max-width: 800px;
+  gap: 20px;
+  grid-auto-flow: dense;
+  text-align: center;
+  -ms-grid-rows: 120px;
+      grid-template-rows: 120px;
+  -ms-grid-columns: (minmax(120px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+@media (max-width: 991px) {
+  .tes-container .container-testimonials__images {
+    -ms-grid-columns: (minmax(190px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .tes-container .container-testimonials__images figure {
+    padding: 20px;
+  }
+}
+
+.tes-container .container-testimonials__images img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .tes-container .container-testimonials__images img {
+    max-height: 100px;
+    max-width: 150px;
+  }
+}
+
 .container-all-site {
   background: #081C39;
   padding: 2rem;

@@ -683,7 +683,7 @@ textPriceSeo.subscribe(priceSeo)
 
 
 // input rangue design
-var $sliders = $('.js-slider')
+var $sliders = $('.js-slider') ? $('.js-slider') : '';
 
 $sliders.each(function () {
   var $slider = $(this)
