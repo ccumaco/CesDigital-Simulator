@@ -258,6 +258,7 @@ header{
     background-color: $primary-color;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
+    z-index: 2;
     & > *{
         margin: 0.5rem 0;
         color: $white-color;
